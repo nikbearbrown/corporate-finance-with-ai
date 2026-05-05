@@ -1,5 +1,5 @@
 # Chapter 5 — The Cost of Capital and the WACC
-
+*A number that looks precise and isn't, sitting atop inputs that could move it by a hundred basis points without anyone being wrong.*
 
 Maya, drafting her cover note for Diane on Friday morning, types: *"The project's NPV at the firm WACC of 8% is positive."* She stops. Where did 8% come from?
 
@@ -11,13 +11,15 @@ This chapter is about what those numbers mean, where the judgment lives, and why
 
 ---
 
-Before we work through the inputs, I want to say something about what "cost of capital" actually means, because the phrase does three different jobs and the three are easy to blur.
+Before working through the inputs, I want to say something about what "cost of capital" actually means, because the phrase does three different jobs and the three are easy to blur.
 
-The first meaning is a rate of return that capital providers expect. When equity holders give Halverson their money, they expect to earn some return — through dividends, share appreciation, or both — that compensates them for the risk of holding Halverson's stock. That expected return is, from Halverson's perspective, the cost of using their money. The same logic applies to bondholders: they lend at 5.2% because that is the rate they require for Halverson's credit risk. The cost of capital is what the providers require.
+The first meaning is a rate of return that capital providers expect. When equity holders give Halverson their money, they expect to earn some return — through dividends, share appreciation, or both — that compensates them for the risk of holding Halverson's stock. That expected return is, from Halverson's perspective, the cost of using their money. The same logic applies to bondholders: they lend at 5.2% because that is the rate they require given Halverson's credit risk. The cost of capital is what the providers require.
 
-The second meaning is a hurdle rate the firm uses for investment decisions. When evaluating Plant 4, the firm needs a discount rate. That discount rate has to be at least as high as the cost of capital, or the project does not generate enough return to satisfy the providers. So the cost of capital is the threshold a project must clear.
+The second meaning is a hurdle rate the firm uses for investment decisions. When evaluating Plant 4, the firm needs a discount rate. That rate has to be at least as high as the cost of capital, or the project does not generate enough return to satisfy the providers. So the cost of capital is the threshold a project must clear.
 
 The third meaning is the weighted average of debt and equity costs. Most firms use both, in proportions reflecting their capital structure. The weighted average of these two costs, adjusted for the tax deductibility of interest, is the WACC.
+
+<!-- → [INFOGRAPHIC: triangle diagram with three nodes labeled "Provider Required Return," "Hurdle Rate," and "WACC" — arrows connecting all three with a note at center reading "aligned in theory, drift in practice" — student should see that the three meanings are distinct concepts that a healthy firm keeps synchronized] -->
 
 In the textbook treatment, all three meanings collapse into one: the WACC is the hurdle rate, and the hurdle rate equals what providers require. In practice they can drift apart. A firm whose stated WACC is 8% but whose investors actually require 11% is systematically mispricing its investments — taking on projects that destroy value while believing it is creating it. The CFO's job is to keep the three aligned. You cannot do that if you treat the WACC as a number someone else computes and puts in a footnote.
 
@@ -27,39 +29,41 @@ The formula is:
 
 $$\text{WACC} = \frac{E}{V} \cdot R_e + \frac{D}{V} \cdot R_d \cdot (1 - T)$$
 
-where $E$ is the market value of equity, $D$ is the market value of debt, $V = E + D$ is total firm value, $R_e$ is the cost of equity, $R_d$ is the pretax cost of debt, and $T$ is the marginal corporate tax rate. Six inputs. Let me take them in order of how much judgment each one requires.
+where $E$ is the market value of equity, $D$ is the market value of debt, $V = E + D$ is total firm value, $R_e$ is the cost of equity, $R_d$ is the pretax cost of debt, and $T$ is the marginal corporate tax rate. Six inputs. Let me take them in order of how much judgment each one requires — starting with the mechanical ones and working toward the contested ones.
 
-**Market values, not book values.** The formula calls for the market values of $E$ and $D$, not the book values from the balance sheet. For equity this is unambiguous: shares outstanding times current price. The book value of equity reflects accumulated retained earnings and historical accounting choices; it is almost never the right denominator for a WACC calculation.
+<!-- → [TABLE: six-input inventory — columns: input, Halverson's value, source, degree of judgment (low/medium/high) — rows: E (market equity), D (market debt), R_d pretax, tax rate T, weights E/V and D/V, R_e from CAPM — student should see at a glance which inputs are looked up and which are argued] -->
 
-For debt, the market value differs from the book value when interest rates have moved since the bonds were issued. Halverson issued $300M of bonds at 5% in 2021. If current market rates for similarly rated debt are 5.2%, those bonds trade at a slight discount — their market value is below $300M. The difference is small for investment-grade debt with modest rate moves and large for distressed debt or significant rate shifts. The discipline is simple: use market values when available, and document clearly when you substitute book values.
+**Market values, not book values.** The formula calls for the market values of $E$ and $D$, not the book values from the balance sheet. For equity this is unambiguous: shares outstanding times current price. The book value of equity reflects accumulated retained earnings and historical accounting choices; it is almost never the right denominator. For debt, the market value differs from book when interest rates have moved since the bonds were issued. Halverson issued $300M of bonds at 5% in 2021. If current market rates for similarly rated debt are 5.2%, those bonds trade at a slight discount. The difference is small for investment-grade debt with modest rate moves and large for distressed debt or significant rate shifts. The discipline is simple: use market values when available, document clearly when you substitute book values.
 
-**The cost of debt.** This is the easiest input. Halverson's existing bonds trade at some yield-to-maturity in the market. That yield is the market's current required return on Halverson's credit risk. Look it up. Two refinements: use the yield on *new* debt at Halverson's risk profile, not the coupon on old debt issued under different conditions. And multiply by $(1 - T)$ to capture the tax shield — every dollar of interest reduces taxable income by one dollar, saving the firm $T$ cents in taxes. At a 24% marginal rate, a pretax cost of debt of 5.2% becomes an after-tax cost of 4.0%.
+**The cost of debt.** This is the easiest input. Halverson's existing bonds trade at some yield-to-maturity in the market. That yield is the market's current required return on Halverson's credit risk. Look it up. Use the yield on *new* debt at Halverson's current risk profile, not the coupon on old debt issued under different conditions. Then multiply by $(1 - T)$ to capture the tax shield — every dollar of interest reduces taxable income by one dollar, saving the firm $T$ cents in taxes. At a 24% marginal rate, a pretax cost of debt of 5.2% becomes an after-tax cost of 4.0%.
 
-The tax adjustment is one of the genuinely mechanical parts of the formula. Congress decided that interest payments are deductible and equity dividends are not. The WACC captures that asymmetry by measuring debt's cost on an after-tax basis. This is the correct treatment, but it means WACC depends on the tax code, and any change in the marginal corporate rate changes WACC even if the underlying business does not change at all.
+The tax adjustment is one of the genuinely mechanical parts of the formula. Congress decided that interest payments are deductible and equity dividends are not. The WACC captures that asymmetry by putting debt on an after-tax basis. This is correct, but it means the WACC depends on the tax code — any change in the marginal corporate rate changes the WACC even if the underlying business does not change at all. The formula is accurate. The number it produces is contingent.
 
-**The weights.** The formula calls for $E/V$ and $D/V$, but there is a question underneath that: which capital structure? Today's, or the one the firm is moving toward?
+**The weights.** The formula calls for $E/V$ and $D/V$, but there is a question underneath: which capital structure? Today's, or the one the firm is moving toward?
 
-The conventional answer is target weights — the proportions the firm intends to maintain over the long run — on the theory that capital budgeting is a long-horizon exercise and the current structure is just a snapshot along the way. If Halverson is currently running at 25% debt but targets 30%, using target weights produces a lower WACC (more weight on cheaper after-tax debt). Whether this is right depends on how credible the target is, and credibility requires judgment.
+The conventional answer is target weights — the proportions the firm intends to maintain over the long run — on the theory that capital budgeting is a long-horizon exercise and the current structure is a snapshot. If Halverson is currently running at 25% debt but targets 30%, using target weights produces a lower WACC (more weight on cheaper after-tax debt). Whether this is right depends on how credible the target is, and credibility requires judgment.
 
-The subtler point is that the weights should match the project, not just the firm. If Plant 4 will be financed differently from Halverson's average project — say, with project finance debt secured against the plant itself — then the appropriate WACC for Plant 4 uses the plant's own financing mix, not the firm average. Using the firm-average WACC for a project with above-average debt capacity understates the benefit of the tax shield; using it for a project with below-average debt capacity overstates it. The formula is right. The question is which capital structure to plug in.
+The subtler point is that the weights should match the project, not just the firm. If Plant 4 will be financed differently from Halverson's average project — say, with project finance debt secured against the plant itself — then the appropriate WACC for Plant 4 uses the plant's own financing mix, not the firm average. Using firm-average weights for a project with above-average debt capacity understates the benefit of the tax shield; using it for a project with below-average debt capacity overstates it. The formula is right. The question is which capital structure to plug in.
 
 ---
 
-Now to the input that carries the most uncertainty, and where the most judgment is concentrated: the cost of equity.
+Now to the input that carries the most uncertainty: the cost of equity.
 
 There is no yield-to-maturity for equity. Equity has no contractual cash flows, no maturity date, no promised return. The cost of equity is not observed; it is inferred. The standard tool for the inference is the Capital Asset Pricing Model:
 
 $$R_e = R_f + \beta \cdot (R_m - R_f)$$
 
-where $R_f$ is the risk-free rate, $\beta$ is the firm's systematic risk — its sensitivity to market-wide movements — and $(R_m - R_f)$ is the equity risk premium, the extra return the market as a whole is expected to earn above the risk-free rate. Three inputs, each with its own source of uncertainty.
+where $R_f$ is the risk-free rate, $\beta$ is the firm's systematic risk — its sensitivity to market-wide movements — and $(R_m - R_f)$ is the equity risk premium, the extra return the market as a whole is expected to earn above the risk-free rate.
 
-**The risk-free rate.** The standard proxy is the yield on US Treasury securities — there is no credit risk and, in normal conditions, no liquidity risk, so the yield represents pure time value of money. The question is which maturity. Short-term Treasury bills yield one thing; 10-year Treasury notes yield something higher; 30-year bonds yield something higher still. The term spread between short and long rates has historically been 50 to 100 basis points, and that flows directly into the WACC.
+Three inputs, each with its own source of uncertainty. Let me take them in turn.
 
-The right answer is to match the project's horizon. For a three-month working capital decision, use the three-month rate. For Plant 4, with a 25-year asset life, the 10-year or 30-year rate is appropriate. Priya used 4.2% — presumably a current 10-year Treasury yield — which is reasonable for a long-horizon capital project.
+**The risk-free rate.** The standard proxy is the yield on US Treasury securities — no credit risk, no material liquidity risk, so the yield represents pure time value of money. The question is which maturity. Short-term Treasury bills yield one thing; 10-year notes yield something higher; 30-year bonds higher still. The term spread between short and long rates has historically been 50 to 100 basis points, and that flows directly into the WACC.
 
-**Beta.** Halverson's beta of 1.1 came from a regression of weekly stock returns against the S&P 500, probably over the past two years. That regression produces a number with a standard error. The true beta — the parameter that governs the relationship between Halverson's returns and market returns going forward — is unobservable. Different lookback windows produce different estimates. Different benchmark indices produce different estimates. Bloomberg and Yahoo Finance often report different betas for the same firm because they use different regression specifications.
+The right answer is to match the project's horizon. For a three-month working capital decision, use the three-month rate. For Plant 4, with a 25-year asset life, the 10-year or 30-year rate is appropriate. Priya used 4.2%, which is a current 10-year Treasury yield — reasonable for a long-horizon capital project.
 
-A beta of 1.1 for Halverson means that historically, when the market moved 1%, Halverson moved about 1.1% in the same direction. A beta of 1.0 is average market risk. A beta below 1.0 is below-average risk. A beta above 1.0 means the stock amplifies market movements.
+**Beta.** Halverson's beta of 1.1 came from a regression of weekly stock returns against the S&P 500, probably over the past two years. That regression produces a point estimate with a standard error. The true beta — the parameter governing the relationship between Halverson's returns and market returns going forward — is unobservable. Different lookback windows produce different estimates. Different benchmark indices produce different estimates. Bloomberg and Yahoo Finance often report different betas for the same firm because they use different regression specifications.
+
+A beta of 1.1 means that historically, when the market moved 1%, Halverson moved about 1.1% in the same direction. A beta of 1.0 is average market risk; below 1.0 is below-average; above 1.0 means the stock amplifies market movements.
 
 The standard error on a two-year weekly regression is roughly 0.15 to 0.25. So Halverson's beta of 1.1 is better described as a point estimate within a range of approximately 0.9 to 1.3 — and each point in that range produces a different cost of equity. The precision of "beta = 1.1" is illusory.
 
@@ -67,13 +71,13 @@ The standard error on a two-year weekly regression is roughly 0.15 to 0.25. So H
 
 Historical estimates, computed from realized stock and bond returns over different time periods, range from roughly 4% to 7% depending on how far back you go, whether you use arithmetic or geometric averaging, and which markets you include. The academic literature has a name for the observation that historical equity returns have been surprisingly high relative to bond returns: the equity premium puzzle. The puzzle is that the historical premium implies a degree of risk aversion among investors that is hard to reconcile with observed behavior.
 
-Forward-looking estimates — derived by working backward from current market prices to the implied expected return — tend to come in lower, around 4% to 5% in current conditions [verify against Damodaran's most recent implied ERP estimate]. CFO surveys have historically reported numbers in a similar range [verify Graham and Harvey]. Priya used 5.0%, which is a defensible choice — squarely in the middle of the reasonable range.
+Forward-looking estimates — derived by working backward from current market prices to the implied expected return — tend to come in lower, around 4% to 5% in current conditions. Priya used 5.0%, which is a defensible choice — squarely in the middle of the reasonable range. But it is not the only defensible choice. And that matters.
 
-But notice what this means for the WACC. The equity risk premium has a defensible range of perhaps 4.5% to 6.0%. At the low end, Re = 4.2% + 1.1 × 4.5% = 9.15%. At the high end, Re = 4.2% + 1.1 × 6.0% = 10.8%. Combine this with the uncertainty in beta (say, 1.0 to 1.3) and the range widens further. The WACC formula looks precise — it produces a number like 8.0% — but the number is sitting atop inputs that could move it by 100 to 150 basis points in either direction without anyone making a clearly wrong choice.
+Notice what this means for the WACC. The equity risk premium has a defensible range of perhaps 4.5% to 6.0%. At the low end, $R_e = 4.2\% + 1.1 \times 4.5\% = 9.15\%$. At the high end, $R_e = 4.2\% + 1.1 \times 6.0\% = 10.8\%$. Combine this with the uncertainty in beta — say, 1.0 to 1.3 — and the range widens further. The WACC formula looks precise. It produces a number like 8.0%. But the number is sitting atop inputs that could move it by 100 to 150 basis points in either direction without anyone making a clearly wrong choice.
 
 ---
 
-Put it all together for Halverson. With Priya's inputs:
+Let me make that concrete. With Priya's inputs:
 
 $$R_e = 4.2\% + 1.1 \times 5.0\% = 9.7\%$$
 
@@ -81,25 +85,31 @@ Round to 9.8%. Pretax cost of debt 5.2%, after-tax 4.0%. Target weights 70% equi
 
 $$\text{WACC} = 0.70 \times 9.8\% + 0.30 \times 4.0\% = 6.86\% + 1.20\% = 8.06\%$$
 
-Rounds to 8.0%. The formula is not hard to compute once the inputs are specified. The work is in the inputs.
+Rounds to 8.0%. Now run a sensitivity. Suppose beta is 1.3 instead of 1.1 — within the standard error of most estimates. And suppose the equity risk premium is 6.0% instead of 5.0% — equally defensible. Then:
 
-Now run a sensitivity. Suppose beta is 1.3 instead of 1.1 — within the standard error of most estimates. Then Re = 4.2% + 1.3 × 5.0% = 10.7%. Suppose the equity risk premium is 6.0% instead of 5.0% — equally defensible. Then Re = 4.2% + 1.3 × 6.0% = 12.0%. With those inputs and the same debt and weights:
+$$R_e = 4.2\% + 1.3 \times 6.0\% = 12.0\%$$
+
+With the same debt and weights:
 
 $$\text{WACC} = 0.70 \times 12.0\% + 0.30 \times 4.0\% = 8.40\% + 1.20\% = 9.60\%$$
 
-Plant 4's NPV at 9.6% is substantially lower than at 8.0%. Whether it is still positive depends on the project's cash flows, but the decision can flip. Maya is about to recommend approval of a major capital project on the basis of an NPV that is sensitive, in an unknown way, to inputs nobody has revisited since last quarter.
+<!-- → [TABLE: two-way sensitivity table — rows: beta values (0.9, 1.1, 1.3), columns: ERP values (4.5%, 5.0%, 6.0%) — cell contents: resulting WACC — student should see the full range of defensible WACCs (roughly 7.5% to 9.6%) arrayed as a grid rather than as a single point estimate, and notice that the base case of 8.0% sits near the optimistic corner] -->
+
+Plant 4's NPV at 9.6% is substantially lower than at 8.0%. Whether it is still positive depends on the project's cash flows, but the decision can flip. Maya is about to recommend approval of a major capital project on the basis of an NPV that is sensitive, in an unknown direction, to inputs nobody has revisited since last quarter.
 
 This is not a failure of analysis. It is the correct picture of the uncertainty. The failure would be to pretend the picture is sharper than it is.
 
 ---
 
-There is one more thing to say about the WACC before closing, and it concerns when the firm WACC is the wrong discount rate even if it is computed correctly.
+There is one more thing to say before closing, and it concerns when the firm WACC is the wrong discount rate even if it is computed correctly.
 
 The WACC is the right discount rate for a project when the project has the same risk profile as the firm average. Halverson's WACC of 8% reflects the risk of Halverson's existing portfolio of assets — its mix of products, geographies, and operating characteristics. If Plant 4 looks like the average Halverson project, use 8%. If it does not, you need a different number.
 
-The question of whether it does is an operational one, not a financial one. A new plant producing existing products in an existing market is probably close to the firm average. A new plant in an unfamiliar geography, or producing a product Halverson has never made, carries additional risk that should be reflected in the discount rate. How much additional? Estimate beta from comparable companies or comparable projects in that market, plug into CAPM with that beta, compute a project-specific Re, and build a project-specific WACC.
+The question of whether it does is an operational one, not a financial one. A new plant producing existing products in an existing market is probably close to the firm average. A new plant in an unfamiliar geography, producing a product Halverson has never made, carries additional risk that should be reflected in the discount rate. How much additional? Estimate beta from comparable companies or comparable projects in that market, plug into CAPM with that beta, compute a project-specific $R_e$, and build a project-specific WACC.
 
 Operations teams almost never do this. The FP&A spreadsheet has one WACC for all projects. Maya's job, on this particular memo, is to check: does Plant 4 look like a typical Halverson investment? If so, 8% is the right number. If it represents a departure — new geography, new product line, different operating leverage — the right rate is probably higher, and the NPV that looks positive at 8% should be stress-tested at 10% or 12% before the recommendation goes to Diane.
+
+<!-- → [IMAGE: decision tree for choosing the right discount rate — branch 1: "Project risk matches firm average?" → yes → use firm WACC; → no → branch 2: "Project has identifiable comparable firms?" → yes → estimate project beta from comps, build project WACC; → no → apply management judgment uplift (e.g., +200–300 bps) and document — student should see this as a repeatable diagnostic, not a one-time calculation] -->
 
 The operations team's footnote does not specify which case applies. This is Maya's flag for the memo.
 
@@ -113,4 +123,42 @@ The defensible move is the one Maya is learning to make for every analytical cla
 
 ---
 
-*A note on what the chapter simplified.* The CAPM is the standard approach to cost of equity but not the only one. Multifactor models (Fama-French three-factor, Carhart four-factor) incorporate additional risk premia for size, value, and momentum, and produce systematically different Re estimates. The CAPM is also a single-period model being applied to a multi-period problem; strictly, the discount rate should vary by period if the risk-free rate or risk premium changes over time. And the WACC assumes the capital structure — and therefore the tax shield — remains constant over the project's life, which is an approximation for any project with scheduled debt repayment. These refinements matter less for most capital budgeting decisions than getting the right beta and ERP range. But they matter, and Chapter 9 will return to them.*
+*A note on what this chapter simplified.* The CAPM is the standard approach to cost of equity but not the only one. Multifactor models — Fama-French three-factor, Carhart four-factor — incorporate additional risk premia for size, value, and momentum, and produce systematically different $R_e$ estimates. The CAPM is also a single-period model being applied to a multi-period problem; strictly, the discount rate should vary by period if the risk-free rate or risk premium changes over time. The WACC also assumes the capital structure — and therefore the tax shield — remains constant over the project's life, which is an approximation for any project with scheduled debt repayment. These refinements matter less for most capital budgeting decisions than getting the right beta and ERP range. But they matter, and Chapter 9 will return to them.
+
+---
+
+## Exercises
+
+### Warm-up
+
+**1.** Using the WACC formula, compute the weighted average cost of capital for a firm with the following inputs: cost of equity 10.5%, pretax cost of debt 6.0%, marginal tax rate 21%, target debt-to-capital weight 35%. Show each step. What is the after-tax cost of debt, and why does the formula use the after-tax figure rather than the pretax one? *(Tests: mechanical WACC calculation; tax shield logic)*
+
+**2.** A firm's beta is reported as 1.2 by Bloomberg and 0.95 by Yahoo Finance for the same stock on the same day. Is one of them wrong? Explain in plain language why two sources can report different betas for the same firm, and what a practitioner should do when the estimates diverge. *(Tests: understanding of beta estimation; regression specification choices)*
+
+**3.** Halverson currently carries 25% debt in its capital structure but has publicly stated a target of 30%. Should Priya use 25% or 30% as the debt weight in the WACC calculation? State the conventional answer and the assumption it requires. *(Tests: current vs. target weights; the theory underlying the target-weight convention)*
+
+---
+
+### Application
+
+**4.** Reconstruct Priya's WACC calculation using her stated inputs ($R_f = 4.2\%$, $\beta = 1.1$, ERP $= 5.0\%$, $R_d = 5.2\%$, $T = 24\%$, 30% debt weight). Then build a two-way sensitivity table: vary beta across 0.9, 1.1, and 1.3, and vary the ERP across 4.5%, 5.0%, and 6.0%. Report all nine WACC values. Which input has the larger effect on the result across its plausible range? *(Tests: WACC computation; sensitivity analysis; identifying the dominant source of uncertainty)*
+
+**5.** Plant 4 generates projected free cash flows of $18M per year for 20 years. Compute its NPV at discount rates of 8.0%, 8.6%, and 9.6%. (Use the annuity formula: $NPV = CF \times \frac{1-(1+r)^{-n}}{r}$, ignoring terminal value for simplicity.) At which rate, if any, does the project cross from positive to negative NPV? What does this tell you about the relationship between WACC uncertainty and the capital budgeting decision? *(Tests: NPV sensitivity to discount rate; connecting WACC range to go/no-go decisions)*
+
+**6.** Halverson is considering acquiring a small renewable energy developer — a business with meaningfully different risk characteristics from its core industrial operations. The FP&A spreadsheet will default to applying Halverson's 8.0% WACC to the acquisition's projected cash flows. Write a one-paragraph memo flag — the kind Maya would attach to the analysis before sending it to Diane — explaining why the firm WACC may be the wrong discount rate and what Priya should do instead. *(Tests: project-specific WACC; translating technical judgment into business communication)*
+
+---
+
+### Synthesis
+
+**7.** The chapter identifies three distinct meanings of "cost of capital": the return providers require, the hurdle rate for investment decisions, and the weighted average of debt and equity costs. In theory they are the same number; in practice they can drift. Describe a realistic scenario in which a firm's stated WACC diverges meaningfully from what its equity investors actually require. What is the practical consequence of that divergence for capital allocation? *(Tests: the three-meaning distinction; connecting misalignment to value destruction)*
+
+**8.** The tax deductibility of interest makes debt cheaper than equity on an after-tax basis, which lowers the WACC as debt weight increases. If this logic holds, why don't firms simply load up on debt to minimize WACC and maximize firm value? What is missing from the WACC formula that limits this strategy in practice? *(Tests: understanding the tax shield; limits of the WACC framework; connection to capital structure theory in later chapters)*
+
+**9.** A colleague argues that the equity risk premium debate is academic noise — practitioners should just use 5% and move on. Construct the strongest version of that argument. Then construct the strongest counterargument, using the Plant 4 NPV calculation as a concrete example. Conclude with your own view on how much precision is appropriate when estimating the ERP for a single capital budgeting decision. *(Tests: understanding the ERP range; connecting input uncertainty to decision outcomes; epistemic judgment)*
+
+---
+
+### Challenge
+
+**10.** The WACC formula assumes the capital structure — and therefore the tax shield — remains constant over the project's life. For a project financed with a term loan that amortizes to zero over ten years, this assumption clearly fails: the debt weight falls from, say, 40% to 0% as the loan is repaid. Describe qualitatively how this violates the WACC's assumptions, and explain what analytical approach a practitioner could use instead to correctly value the project's tax shield under a declining debt schedule. (You do not need to compute a full solution — explain the logic.) *(Tests: identifying the limits of the constant-WACC assumption; pointing toward APV as an alternative framework)*
