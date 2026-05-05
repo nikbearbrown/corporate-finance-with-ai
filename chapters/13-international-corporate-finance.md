@@ -18,7 +18,13 @@ Diane now wants Maya to evaluate repatriating the £25 million to help fund an a
 
 The five new dimensions are currency, country risk, tax, transfer pricing, and repatriation friction. Let me work through each, and then show which ones are actually doing analytical work for Halverson and which ones are administrative complexity in disguise.
 
-<!-- → [TABLE: the five international dimensions — columns: dimension, analytically new vs. administrative overlay, what it changes in the analysis, Halverson UK exposure level (low/medium/high) — student should see at a glance that currency and country risk are genuinely new and that tax/transfer pricing/repatriation add complexity to existing frameworks rather than replacing them] -->
+| Dimension | Analytically new vs. administrative overlay | What it changes in the analysis | Halverson UK exposure level |
+|---|---|---|---|
+| **Currency** | **New** | Cash flows must be denominated; discount rate must match currency; hedging is a real cost | **High** (UK subsidiary generates £-denominated revenue) |
+| **Country risk** | **New** | Discount rate carries a country-risk premium; political and contract-enforcement risk priced explicitly | Low (UK is investment-grade sovereign) |
+| **Tax (foreign jurisdiction)** | Administrative overlay | Effective tax rate changes; repatriation rules layer in | Medium (UK corporate tax + repatriation) |
+| **Transfer pricing** | Administrative overlay | Where profit is booked vs. where it's earned; arm's-length-pricing documentation | Medium-High (intercompany IP licensing flows) |
+| **Repatriation** | Administrative overlay | Withholding tax on dividends; cash trapped in subsidiary | Low (UK-US treaty is favorable) |
 
 ---
 
@@ -40,7 +46,11 @@ Economic exposure runs in the opposite direction when the pound strengthens. Hal
 
 Managing economic exposure requires operational decisions, not financial hedging. Where the firm sources its inputs, where it manufactures, where it denominates its invoices — these choices determine how sensitive the underlying cash flows are to exchange rate movements. A firm that manufactures in the UK, sources inputs in the UK, and sells in the UK has low economic exposure to GBP/USD movements. A firm that manufactures in the US and sells in the UK has high economic exposure. A financial hedge can address transaction flows. Only the operational structure can address the underlying exposure.
 
-<!-- → [TABLE: three types of FX exposure compared — columns: exposure type, what drives it, whether it affects cash flows, whether it can be hedged financially, Halverson's response — rows: transaction, translation, economic — student should see that the cash flow impact and hedge-ability differ systematically across the three; the key insight is that only transaction exposure is both cash-real and financially hedgeable] -->
+| Exposure type | What drives it | Affects cash flows? | Hedgeable financially? | Halverson's response |
+|---|---|---|---|---|
+| **Transaction** | Specific contracts denominated in non-USD currency, settling in the future | **Yes** — currency move directly hits realized cash | **Yes** — forwards, futures, options | Hedge 70% via rolling 12-month forwards |
+| **Translation** | Consolidation of foreign-subsidiary financial statements into USD | No — accounting artifact only | No (not really — only cosmetically) | Do not hedge |
+| **Economic** | Long-run shift in competitive position from currency moves | **Yes** — but slowly, through margin compression and volume changes | Partial (operational hedges: matching cost and revenue currencies) | Address via operational footprint over time, not financial hedge |
 
 ---
 
@@ -64,7 +74,17 @@ When Halverson evaluates a Mexico plant, it faces business risk that its US oper
 
 The standard approach adds a country risk premium to the discount rate. Damodaran maintains a widely used series of these premiums, derived from sovereign CDS spreads adjusted for the relative volatility of equity markets versus bond markets. Indicative figures: the United Kingdom carries perhaps 50 basis points; Mexico, roughly 250; Brazil, roughly 400; Argentina, an order of magnitude higher.
 
-<!-- → [TABLE: indicative country risk premiums — columns: country, approximate CRP (basis points), resulting discount rate if base WACC is 8%, what category of risk drives the premium (political, FX, macro, contract enforcement) — student should see the wide range and understand that the CRP is a bundled number masking several distinct risk types] -->
+| Country | Approximate CRP (bps) | Discount rate if base WACC is 8% | Primary driver of premium |
+|---|---|---|---|
+| **United States** | 0 | 8.0% | (Reference) |
+| **United Kingdom** | 30 | 8.3% | Macro; mild contract-enforcement uncertainty post-Brexit |
+| **Germany** | 50 | 8.5% | Macro; FX |
+| **Brazil** | 250 | 10.5% | FX; political |
+| **Argentina** | 800 | 16.0% | FX; macro; contract enforcement |
+| **Russia** | 900+ | 17%+ | Political; contract enforcement |
+| **Venezuela** | 1500+ | 23%+ | Political; FX; macro |
+
+*The CRP is a bundled number masking several distinct risk types. For a real deployment in a high-CRP country, the bundling should be unbundled and each component priced separately.*
 
 For a Mexico plant with a firm WACC of 8%, the adjusted discount rate is approximately 10.5%. This is consistent with what a pure-play comparables analysis produces for Mexican industrial operations — the two approaches triangulate to the same range, which is reassuring.
 
@@ -157,3 +177,88 @@ The framework holds. The variables multiply. Knowing which variables are doing r
 ---
 
 *Tags: international corporate finance, currency exposure, transaction exposure, translation exposure, economic exposure, country risk premium, transfer pricing, repatriation, foreign project valuation, interest rate parity*
+
+---
+
+###  LLM Exercise — Chapter 13: International Corporate Finance
+
+**Project:** Halverson's Board Memo, Built Across the Course
+**What you're building this chapter:** The International Risk Section of the memo: identification of the firm's currency and country exposures, with a hedging program and a transfer-pricing posture defended.
+**Tool:** Claude Code
+
+---
+
+**The Prompt:**
+
+```
+I'm working on Halverson's Board Memo. The risk register is in `12-risk-register.md`.
+
+Chapter 13 taught:
+- **Three currency exposures**: transaction (specific contracts), translation (consolidating financials), economic (long-run competitive impact)
+- **Cross-border capital flows**: transfer pricing, repatriation, withholding tax
+- **Country risk**: political, regulatory, expropriation, sovereign
+
+Scaffold `analysis/13-international.py`:
+
+1. **Map the firm's geographic footprint.** Revenue by geography, costs by geography, assets by geography. From the segment disclosure in the 10-K. Most US-listed industrials report in 4–8 segments.
+
+2. **Identify the currency exposures.** For each non-USD currency:
+   - **Transaction exposure** = next 12 months of contractually committed FX-denominated cash flows
+   - **Translation exposure** = net assets denominated in that currency on the consolidated balance sheet
+   - **Economic exposure** = impact on competitive position if that currency moves significantly (qualitative)
+
+3. **Quantify the FX-at-risk.** For the top 2–3 currencies, compute a 1-year 95th-percentile loss given the historical volatility of the FX pair. This is the FX exposure measured in dollars.
+
+4. **Design a hedging program.** For each currency, recommend:
+   - **Hedge ratio**: percentage of transaction exposure to hedge (typically 50–80% rolling forward)
+   - **Instrument**: forwards, options, or natural hedges (matching FX-denominated revenue with FX-denominated costs)
+   - **Cost**: the all-in cost of the hedging program (forward points + bid-ask + program management)
+   - **What's left unhedged**: the residual exposure the firm consciously accepts
+
+5. **The transfer-pricing posture.** One paragraph. Where does the firm book profit relative to where the operations actually generate it? What's the firm's stated transfer-pricing policy? Are there currently open audits or controversies?
+
+6. **Save `analysis/13-international.md`** containing the geographic footprint, the FX exposure quantification, the hedging program, and the transfer-pricing posture.
+
+Run with `python analysis/13-international.py --ticker [TICKER]`.
+```
+
+---
+
+**What this produces:** A runnable script `analysis/13-international.py` plus `analysis/13-international.md` containing the geographic footprint, FX exposures, the hedging program, and the transfer-pricing posture.
+
+**How to adapt this prompt:**
+
+- *For your own project:* Substitute your firm for Halverson where Halverson appears; the exercise structure is firm-agnostic. Halverson's named cast (Diane / Priya / Cardinal) is scaffolding — replace as needed.
+- *For ChatGPT / Gemini:* Works as-is. For ChatGPT, save the running memo to a Custom GPT instead of a Claude Project. For Gemini, paste the project's accumulated section files into the context window each session.
+- *For Claude Code:* Right tool — pulling segment disclosures, computing FX-at-risk via historical vol, and modeling alternative hedge ratios is multi-step quantitative work.
+- *For a Claude Project:* Append to the project. The hedging program goes in the Chapter 15 *risk position* section and interacts with the Chapter 12 risk register.
+
+**Connection to previous chapters:** Chapter 12 priced operational risk; Chapter 13 prices the international slice of it explicitly.
+
+**Preview of next chapter:** Chapter 14 turns inward — to the behavioral biases that distort the recommendations Chapters 1–13 produced.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Susan Strange** was founding *international political economy* as a discipline in the 1970s and 1980s — including her account of *casino capitalism* and *mad money*, the foundational analyses of how international financial flows actually move and what they cost the firms exposed to them decades before most people had heard of international corporate finance, currency exposure, and the political economy of cross-border capital. Here's a prompt to find out more — and then make it better.
+
+![Susan Strange, c. 1980s. AI-generated portrait based on a public domain photograph (Wikimedia Commons).](images/susan-strange.jpg)
+*Susan Strange, c. 1980s. AI-generated portrait based on a public domain photograph.*
+
+**Run this:**
+
+```
+Who was Susan Strange, and how does her work on the *political economy of international finance* — including her analyses of casino capitalism, mad money, and the structural power that international financial flows give certain actors — connect to the chapter's treatment of currency hedging, transfer pricing, and the real costs of operating a firm across borders? Keep it to three paragraphs. End with the single most surprising thing about her career or ideas.
+```
+
+→ Search **"Susan Strange"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain *structural power in international finance* in plain language, as if you've never read political economy
+- Ask it to compare Strange's 1980s account of cross-border capital flows to a modern multinational's currency-hedging policy
+- Add a constraint: "Answer as if you're writing the case for treating FX exposure as a strategic, not just operational, decision"
+
+What changes? What gets better? What gets worse?
+

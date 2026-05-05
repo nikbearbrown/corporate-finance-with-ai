@@ -31,7 +31,11 @@ Maya has not yet felt the weight of her name on a certification. She will. And w
 
 There are three things an outside analyst systematically cannot see. Each one is worth naming precisely before we go deep into one of them.
 
-<!-- → [TABLE: three-column summary of the three blind spots — columns: Blind Spot, What the Outside Analyst Sees, What the Inside View Adds — rows: (1) accrual/cash divergence, (2) accrual quality, (3) off-statement information — student should see at a glance that each blind spot involves information present inside the firm but absent from the published document] -->
+| Blind spot | What the outside analyst sees | What the inside view adds |
+|---|---|---|
+| **Accrual / cash divergence** | Net income from the income statement, OCF from the cash-flow statement, and the gap between them as a published number | The specific line items moving the gap (deferred revenue, accrued expenses, working-capital choices) and *why* — which choices were made deliberately by management to smooth or signal |
+| **Accrual quality** | Reserve levels and revenue-recognition policies as disclosed; the auditor's signed opinion | Whether the reserve sizing is conservative or aggressive *given known operational realities* the public can't see (a customer about to file Chapter 11, a contract under renegotiation) |
+| **Off-statement information** | The 10-K narrative; the earnings call; press releases | Internal forecasts, contract pipelines, customer-concentration data, the operations team's read on the next quarter — all the data that drives management's actual view of the firm |
 
 The first is the divergence between accrual earnings and operating cash. Reported net income includes revenue recognized but not yet collected, expenses incurred but not yet paid, depreciation which is an accounting charge against an earlier cash outflow and does not move any cash today, and accruals — estimates of future obligations booked against current-period income to match costs to the revenue they support. Operating cash flow does none of that. It counts cash received, cash paid, and cash only. The two numbers can diverge for completely legitimate reasons or for deeply worrying ones, and the face of the 10-K does not tell you which story you are in.
 
@@ -87,7 +91,13 @@ Firm B is stagnant. Revenue has been flat for six quarters. Receivables are grow
 
 Firm C is managing its earnings. Revenue was light through the first eleven weeks of the quarter, and so in the final two weeks the sales team signed contracts with customers who have not yet received delivery and, under strict revenue recognition rules, should not have been recognized. The receivables spike at quarter-end reflects contracts signed but performance not yet completed. Operating cash lags net income because cash does not follow recognized revenue that has not yet been earned. The gap is the size of the misrepresentation.
 
-<!-- → [TABLE: three-firm comparison — columns: Firm, Revenue trend, AR growth driver, Inside diagnostic, Interpretation of the gap — rows: Firm A (growing, new customers, AR aging skews current, working capital investment), Firm B (stagnant, slow payers, AR aging skews 60–90 day, bad debt accumulating), Firm C (managed, quarter-end contracts, AR spike in final 2 weeks, misrepresented earnings) — student should see that identical summary numbers map to three entirely different business realities] -->
+| Firm | Revenue trend | AR growth driver | Inside diagnostic | Interpretation of the gap |
+|---|---|---|---|---|
+| **Firm A** | Growing | New customers | AR aging skews to *current* (0–30 days) | Working-capital investment supporting genuine growth |
+| **Firm B** | Stagnant | Slow payers | AR aging skews to 60–90 days | Bad debt accumulating; collections operationally broken |
+| **Firm C** | Managed | Quarter-end contracts | AR spike concentrated in the final two weeks of the quarter | Earnings being misrepresented through aggressive cut-off practice |
+
+*Identical summary numbers map to three entirely different business realities. Only the inside view distinguishes them.*
 
 Three firms. Identical income statements. Identical cash flow statements. The outside analyst cannot distinguish them from the numbers alone. The inside view distinguishes them immediately — because the inside view has Aaron's eighty-seven-tab working file, which includes the AR aging report showing whether the receivables belong to new customers, old customers, or contracts signed in the last forty-eight hours of the quarter.
 
@@ -115,7 +125,14 @@ Every accrual is an estimate. The question is whether the estimate is derived fr
 
 What makes this difficult is that most CFOs are not choosing between honesty and deception. They are choosing, within the corridor GAAP allows, between conservative and aggressive. Conservative accruals — larger reserves, earlier expense recognition, slower revenue recognition — tend to build hidden strength in the balance sheet. The earnings look worse in good quarters and better in bad ones, because the reserves are available to draw against when the business softens. Aggressive accruals do the reverse: earnings look better now, but the reserves are thin when business softens, and the accounting has nowhere to go but down.
 
-<!-- → [TABLE: conservative vs. aggressive accrual posture — columns: dimension, conservative approach, aggressive approach — rows: reserve sizing, revenue recognition timing, depreciation pace, earnings in good quarters, earnings in bad quarters, balance sheet resilience — student should see the full trade-off matrix, not just the point-in-time earnings effect] -->
+| Dimension | Conservative posture | Aggressive posture |
+|---|---|---|
+| **Reserve sizing** | Larger reserves for receivables, warranty, returns; pre-emptive write-downs | Reserves released into earnings opportunistically; write-downs deferred |
+| **Revenue recognition timing** | Earlier-stage revenue deferred until risk is clearly transferred | Revenue recognized at the earliest defensible point in the contract |
+| **Depreciation pace** | Shorter useful lives, faster expensing | Longer useful lives, slower expensing |
+| **Earnings in good quarters** | Visibly understated; reserves built | Visibly amplified; reserves flat or released |
+| **Earnings in bad quarters** | Cushioned by reserve releases; smoother trajectory | Visible drops with no buffer; volatility flows through |
+| **Balance sheet resilience** | Higher reserves and lower book asset values; more room to absorb shocks | Tighter reserves and higher book asset values; less buffer |
 
 Both are legal. The outside analyst sees the reported number. The inside view sees which direction the estimates are running, and whether that direction has been consistent across the cycle.
 
@@ -186,3 +203,79 @@ She will not read the next 10-Q the same way she read every 10-Q before this wee
 **11.** The chapter uses Firms A, B, and C — all with identical published financials — to show that the same numbers can reflect three entirely different business realities. Construct a fourth scenario, Firm D, in which a cash conversion ratio above 1.0 is actually a warning sign rather than a signal of health. Explain the mechanism, identify what inside information would reveal it, and describe what an outside analyst would need to see to suspect something was wrong without having access to the working file. *(Tests: stress-testing the cash conversion ratio as a diagnostic; generating counterexamples to framework claims)*
 
 **12.** This chapter focuses on what the inside view adds to reading financial statements. Consider the reverse: are there things the outside analyst can see more clearly than the CFO? Design an argument for why information asymmetry sometimes runs the other direction — where distance from the firm is an analytical advantage, not a liability. Use specific examples from the chapter's framework to ground your argument. *(Tests: challenging the chapter's directional claim; applying the inside/outside distinction to its own limits)*
+
+---
+
+###  LLM Exercise — Chapter 2: Reading the Firm from Inside
+
+**Project:** Halverson's Board Memo, Built Across the Course
+**What you're building this chapter:** The Inside-View Read section of the memo: a manager-eye assessment of the firm's three financial statements, the operational reality behind them, and the institutional-memory questions only an insider can answer.
+**Tool:** Cowork
+
+---
+
+**The Prompt:**
+
+```
+I'm working on Halverson's Board Memo for the firm in `01-decision-frame.md`. Chapter 2 distinguished:
+
+- The **outside-analyst view** — built from public data (10-K, earnings calls, EDGAR), with the verification loop running through cross-references
+- The **inside-analyst view** — built from operational data, institutional memory, and people in the building, with the verification loop running through ownership of the underlying numbers
+
+In **Cowork**, produce `02-inside-read.md` containing:
+
+1. **The three-statement insider read.** Pull the most recent annual filing (10-K) and quarterly filing (10-Q) for your firm. For each statement, write 4–6 sentences that an analyst from outside the firm could *not* write — i.e., the inside-view interpretation. Examples:
+   - **Income statement**: which revenue is the company internally calling *backlog conversion* vs. *new bookings*? Which margin is being protected by which operational lever?
+   - **Balance sheet**: which receivables are the credit team flagging? Which inventory is the operations team writing down quietly?
+   - **Cash flow statement**: which line of operating cash is being moved by working-capital choices vs. by underlying operational performance?
+
+2. **The shadow numbers.** Three-to-five operational metrics the firm tracks internally that don't appear in any filing — backlog conversion rate, customer concentration, days of safety stock, average sales-cycle length, channel-mix shift. State each, give the latest internal value (or your best estimate), and explain why it matters for the third-Tuesday decision in `01-decision-frame.md`.
+
+3. **The institutional-memory questions.** Three questions only an insider could answer that *should* be answered before the Chapter 15 board memo ships. Examples:
+   - "Why was the Q3 2023 working-capital improvement reversed in Q1 2024?"
+   - "What did Diane commit to the audit committee at the September meeting?"
+   - "Who actually owns the customer-concentration policy?"
+
+Save as `02-inside-read.md`. The verification loop here is *ownership-based* — for each claim, the inside view names *who you'd ask* to confirm it.
+```
+
+---
+
+**What this produces:** A markdown document `02-inside-read.md` containing the three-statement insider read, three-to-five shadow numbers, and the institutional-memory questions that only an insider can answer.
+
+**How to adapt this prompt:**
+
+- *For your own project:* Substitute your firm for Halverson where Halverson appears; the exercise structure is firm-agnostic. Halverson's named cast (Diane / Priya / Cardinal) is scaffolding — replace as needed.
+- *For ChatGPT / Gemini:* Works as-is. For ChatGPT, save the running memo to a Custom GPT instead of a Claude Project. For Gemini, paste the project's accumulated section files into the context window each session.
+- *For Claude Code:* Not needed for the prose; Cowork's filing-pull is the load-bearing tool.
+- *For a Claude Project:* Cowork is the right tool — it can pull the 10-K and 10-Q from EDGAR (or from a local file) and assemble the read in one session. The Project context inherits the firm choice.
+
+**Connection to previous chapters:** Chapter 1 named the firm and the decision; Chapter 2 reads the firm from the inside, distinguishing what the public can see from what only Maya can.
+
+**Preview of next chapter:** Chapter 3 zooms in on working capital — the part of the firm where cash actually lives — and produces the cash-conversion-cycle analysis.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Mary Harris Smith** was becoming, in 1919, the first woman chartered accountant in the world — over four decades after she had already been doing the work without being credentialed for it decades before most people had heard of reading a firm's books from inside, with the discipline that distinguishes a manager's view from an outside analyst's. Here's a prompt to find out more — and then make it better.
+
+![Mary Harris Smith, c. 1920. AI-generated portrait based on a public domain photograph (Wikimedia Commons).](images/mary-harris-smith.jpg)
+*Mary Harris Smith, c. 1920. AI-generated portrait based on a public domain photograph.*
+
+**Run this:**
+
+```
+Who was Mary Harris Smith, and how does her career — including the four-decade gap between her competence and her credentialing — connect to the chapter's argument that *reading the firm from inside* requires both technical accounting fluency and the practitioner-level access that historically gated who could exercise it? Keep it to three paragraphs. End with the single most surprising thing about her career or ideas.
+```
+
+→ Search **"Mary Harris Smith"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain why the *insider's view of the books* is structurally different from the *analyst's view*, in plain language
+- Ask it to compare the credentialing barriers Smith fought to the access barriers a modern non-finance manager hits when reading their own firm
+- Add a constraint: "Answer as if you're writing the introduction to a chapter on reading financial statements as a manager, not as an analyst"
+
+What changes? What gets better? What gets worse?
+

@@ -15,7 +15,12 @@ The formula is missing something. This chapter is about what.
 
 The MM-with-taxes result — $V_L = V_U + T \times D$ — follows from a set of assumptions that were stated at the beginning of Chapter 7 and then quietly set aside. No costs to bankruptcy or financial distress. No informational differences between managers and outside investors. No conflicts of interest between shareholders and debtholders. And a tax system that taxes only corporate income, not the personal income investors receive.
 
-<!-- → [TABLE: four-row inventory of dropped MM assumptions — columns: assumption, why MM made it, what happens when you drop it — rows: (1) costless bankruptcy, (2) no agency conflicts, (3) symmetric information, (4) no personal taxes — student should see that each dropped assumption corresponds to one of the four forces introduced in this chapter] -->
+| Assumption | Why MM made it | What happens when you drop it |
+|---|---|---|
+| **Costless bankruptcy** | To isolate the financing decision from operational consequences of distress | Distress costs (direct + indirect + pre-distress operational distortions) become a real offset to the tax shield → trade-off theory |
+| **No agency conflicts** | To treat manager-shareholder and shareholder-bondholder relations as frictionless | Debt disciplines free cash flow (Jensen); but debt also creates risk-shifting and underinvestment — agency costs of debt and of equity |
+| **Symmetric information** | To treat the market as knowing everything management knows | Issuance becomes a signal: equity issuance signals overvaluation; debt issuance signals confidence — pecking-order theory and market-timing behavior |
+| **No personal taxes** | To isolate corporate taxation as the only friction | Personal-tax wedge (dividends taxed differently from capital gains) reshapes payout policy — Miller (1977) corrects the tax-shield magnitude |
 
 Strip away those assumptions one at a time and you get four forces that push back against debt. Each one is a real economic phenomenon with real dollar consequences. Together they explain why the actual optimal capital structure for most firms is not 100% debt but something considerably more moderate. Let me take them in turn.
 
@@ -33,7 +38,13 @@ The second category is larger and harder to see. When a firm is visibly in finan
 
 There is also a third category that operates before any formal distress filing. A firm approaching financial difficulty may pass on positive-NPV projects because it needs to conserve cash. It may sell assets at fire-sale prices. It may take on excessive risk — gambling for resurrection, trying to hit a jackpot that makes the debt problem disappear. Myers called this the underinvestment problem. Jensen and Meckling called the risk-taking version asset substitution. Both are real, both are costly, and both happen well before any bankruptcy filing.
 
-<!-- → [TABLE: three-category distress cost summary — columns: category, description, approximate magnitude, when it appears — rows: (1) direct costs (legal/professional fees, 3–7% of EV, at filing), (2) indirect costs (customer/employee/supplier flight, 10–25% of EV, during visible distress), (3) pre-distress operational distortions (underinvestment, asset sales, risk-shifting, hard to estimate, before any filing) — student should see that the visible legal costs are the smallest of the three] -->
+| Category | Description | Approximate magnitude | When it appears |
+|---|---|---|---|
+| **Direct costs** | Legal, professional, accounting, court-administration fees during the bankruptcy process itself | 3–7% of pre-distress enterprise value | At the filing — visible on the docket |
+| **Indirect costs** | Customer flight, employee attrition, supplier tightening of terms when distress becomes visible | 10–25% of pre-distress enterprise value | During visible distress, often pre-filing |
+| **Pre-distress operational distortions** | Underinvestment (deferred capex), forced asset sales, risk-shifting (high-variance projects to "swing for the fences") | Hard to estimate; can be the largest of the three | Before any filing — sometimes years before |
+
+*The visible legal costs — what most analyses cite — are the smallest of the three. The pre-distress operational distortions are the largest and the hardest to see.*
 
 Now connect this to leverage. A firm with no debt essentially cannot enter financial distress. A firm with 80% debt-to-capital enters distress in any meaningful recession. The probability of distress rises with leverage — slowly at first, then very steeply.
 
@@ -101,7 +112,13 @@ The first term pushes toward debt. The remaining three create forces that grow w
 
 For a firm like Halverson — stable cash flows, tangible manufacturing assets, moderate growth, investment-grade credit — the optimum falls in the 25–40% range. For a high-growth software firm with mostly intangible assets, the optimum is much lower, perhaps 5–15%: the distress costs are enormous (customers and employees flee, intangible assets evaporate), the agency costs are large, and the tax shield may be unavailable if taxable income is low. For a regulated utility with contractually guaranteed cash flows and hard assets that liquidate at predictable prices, the optimum is much higher, perhaps 50–60%: distress is unlikely and the tax shield is fully capturable.
 
-<!-- → [TABLE: three-firm optimal leverage comparison — columns: firm type, cash flow stability, asset tangibility, distress cost severity, tax shield availability, approximate optimal D/C range — rows: (1) Halverson-type manufacturer (stable, high, moderate, full, 25–40%), (2) high-growth software firm (volatile, low, very high, limited, 5–15%), (3) regulated utility (contractually stable, high, very low, full, 50–60%) — student should see that the same four-force framework produces very different optimal structures depending on the firm's operating characteristics] -->
+| Firm type | Cash flow stability | Asset tangibility | Distress cost severity | Tax shield availability | Approximate optimal D/C range |
+|---|---|---|---|---|---|
+| **Halverson-type manufacturer** | Stable | High | Moderate | Full | **25–40%** |
+| **High-growth software firm** | Volatile | Low | Very high (customers flee at first signal) | Limited (often no taxable income) | **5–15%** |
+| **Regulated utility** | Contractually stable | High | Very low (regulator structure prevents most distress) | Full | **50–60%** |
+
+*Same four-force framework; very different optimal structures depending on operating characteristics.*
 
 The formula is the same. The answer differs because the inputs differ.
 
@@ -172,3 +189,83 @@ The risks are named explicitly. If Halverson's operating cash flows weaken in a 
 ### Challenge
 
 **10.** The chapter uses a static trade-off model — the firm picks an optimal leverage ratio today and holds it. In a dynamic version, the firm faces a trade-off each period: rebalancing toward the optimum is costly (transaction costs, market timing), so firms may let leverage drift and only correct when the deviation becomes large. Design a simple heuristic — a rule the CFO could actually apply — for deciding when a leverage deviation is large enough to warrant active correction. What inputs would the heuristic require, and what evidence from the chapter's framework would tell you the guardrail has been breached? *(Tests: translating the static trade-off into an operational decision rule; connecting theory to the CFO's practical capital structure management)*
+
+---
+
+###  LLM Exercise — Chapter 8: Capital Structure in the Real World
+
+**Project:** Halverson's Board Memo, Built Across the Course
+**What you're building this chapter:** The Target Capital Structure section of the memo: a defended target debt-to-capital ratio, with the trade-offs (tax shield, distress cost, financial flexibility, signaling) priced explicitly.
+**Tool:** Claude Project
+
+---
+
+**The Prompt:**
+
+```
+I'm working on Halverson's Board Memo. The MM baseline is in `07-mm-baseline.md`.
+
+Chapter 8 taught:
+- **Trade-off theory**: optimal debt level balances the tax shield against distress costs
+- **Pecking order theory**: managers prefer internal funds → debt → equity (in that order) because of information asymmetry
+- **Agency costs**: debt disciplines free cash flow; equity dilutes incentive
+- **Market timing**: managers issue equity when they think it's overvalued
+- **Financial flexibility**: keeping debt capacity in reserve has option value
+
+Produce `08-target-structure.md` containing:
+
+1. **The current capital structure.** From the latest 10-K balance sheet, compute the firm's debt-to-capital ratio (book) and debt-to-enterprise-value ratio (market). State both. Compare to the firm's stated target (if disclosed in the 10-K) and to the industry median.
+
+2. **The four-pillar trade-off analysis.** For each of the four real-world frictions, quantify or qualify its impact on your firm's optimal capital structure:
+   - **Tax shield** (from Chapter 7): present value of $T_c \cdot D$ at the candidate debt levels
+   - **Distress cost**: probability of distress (use the firm's credit rating to map to historical default rates) times estimated distress cost (use ~25% of pre-distress firm value as a default; defend if you use a different number)
+   - **Financial flexibility**: what option value does the firm forgo by levering up? Quantify in the spirit of Chapter 6
+   - **Signaling**: what does an issuance of debt vs. equity tell the market about management's view of firm value?
+
+3. **The recommended target.** A specific debt-to-capital ratio (e.g., "30–35% debt-to-capital, mid-investment-grade target rating BBB+"). Defend it in two paragraphs.
+
+4. **The path to the target.** If current ≠ target, what's the plan? Issue debt, retire equity, or both? Over what time horizon? Reference the financing chapters to come (Ch 9 payout, Ch 10 issuance).
+
+5. **The flexibility statement.** One sentence. The maximum debt the firm could take on without breaching its target rating — i.e., the *unused debt capacity* that is the optionality the recommendation is buying.
+```
+
+---
+
+**What this produces:** A markdown document `08-target-structure.md` containing the current vs. target capital structure, the four-pillar trade-off analysis, the recommended target ratio, the path to it, and the unused-debt-capacity statement.
+
+**How to adapt this prompt:**
+
+- *For your own project:* Substitute your firm for Halverson where Halverson appears; the exercise structure is firm-agnostic. Halverson's named cast (Diane / Priya / Cardinal) is scaffolding — replace as needed.
+- *For ChatGPT / Gemini:* Works as-is. For ChatGPT, save the running memo to a Custom GPT instead of a Claude Project. For Gemini, paste the project's accumulated section files into the context window each session.
+- *For Claude Code:* Optional — Claude Code can build `analysis/08-tradeoff.py` that maps credit rating to default probability and computes the tax-shield-vs-distress-cost trade-off across a range of debt levels.
+- *For a Claude Project:* Append to the project. The target capital structure is one of the four interdependent decisions Chapter 15 must integrate.
+
+**Connection to previous chapters:** Chapter 7 stated the MM baseline; Chapter 8 adds the real-world frictions and produces a target debt-to-capital ratio with each trade-off explicitly priced.
+
+**Preview of next chapter:** Chapter 9 turns to the other side of the financing decision — what to do with capital the firm is *not* keeping: dividends and buybacks.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Adolf A. Berle** was co-authoring *The Modern Corporation and Private Property* in 1932 with Gardiner Means — the foundational analysis of what *capital structure in the real world* actually looks like once ownership and control separate decades before most people had heard of real-world capital structure, the agency problem, and the determinants of debt-equity choice that MM rules out by assumption. Here's a prompt to find out more — and then make it better.
+
+![Adolf A. Berle, c. 1940s. AI-generated portrait based on a public domain photograph (Wikimedia Commons).](images/adolf-a-berle.jpg)
+*Adolf A. Berle, c. 1940s. AI-generated portrait based on a public domain photograph.*
+
+**Run this:**
+
+```
+Who was Adolf A. Berle, and how does his 1932 analysis of the modern corporation — particularly the separation of ownership from control — connect to the chapter's argument that real-world capital structure is shaped by agency costs, asymmetric information, and managerial entrenchment that the Modigliani-Miller world rules out by assumption? Keep it to three paragraphs. End with the single most surprising thing about his career or ideas.
+```
+
+→ Search **"Adolf A. Berle"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain *the separation of ownership and control* in plain language, as if you've never read corporate governance
+- Ask it to compare Berle's 1932 description of the modern corporation to a 21st-century private-equity-owned firm
+- Add a constraint: "Answer as if you're writing the real-world-frictions paragraph in a capital-structure memo"
+
+What changes? What gets better? What gets worse?
+

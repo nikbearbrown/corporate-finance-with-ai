@@ -22,7 +22,12 @@ Let me describe the world MM built the theorem for, because the theorem is only 
 
 Assume four things. No corporate taxes — interest payments are not deductible, and the government treats debt and equity financing neutrally. No bankruptcy costs — if a firm can't pay its debts, the process of renegotiating or defaulting costs nothing, and the assets retain their full value regardless of who owns them. No information asymmetries — everyone, management, shareholders, bondholders, the market, knows the same things about the firm's future cash flows. And finally: investors can borrow and lend at the same rate as the corporation.
 
-<!-- → [TABLE: the four MM assumptions — columns: assumption, what it rules out, what happens to the proof when you relax it — rows: no taxes, no bankruptcy costs, no information asymmetry, equal borrowing rates — student should see each assumption as a load-bearing pillar and be able to predict which chapter addresses each relaxation] -->
+| Assumption | What it rules out | What happens to the proof when you relax it |
+|---|---|---|
+| **No taxes** | Government's preferential treatment of debt over equity | Tax shield on interest is real; debt creates value equal to $T_c \cdot D$ — addressed in Ch 7 (taxes) and Ch 8 (real-world structure) |
+| **No bankruptcy costs** | Direct legal/professional fees and indirect customer/supplier flight when a firm becomes distressed | Distress cost is real; trade-off theory emerges — Ch 8 |
+| **No information asymmetry** | Management knows things the market doesn't | Issuance signals matter (pecking order, market timing) — Ch 8, Ch 10 |
+| **Equal borrowing rates** | Investors can replicate corporate leverage at the same rate | Investor borrowing rate exceeds corporate; corporate leverage adds value the investor can't undo — Ch 8 |
 
 In this world, the MM theorem holds. Outside it — as soon as you relax any of these four assumptions — you are no longer in MM's world, and the theorem no longer holds in its clean form.
 
@@ -183,3 +188,81 @@ The MM world does not exist. The MM logic is how you navigate the one that does.
 ---
 
 *Tags: Modigliani-Miller, Proposition I, Proposition II, tax shield, capital structure, arbitrage, weighted average cost of capital, corporate taxes*
+
+---
+
+###  LLM Exercise — Chapter 7: Capital Structure Theory: The Modigliani-Miller World
+
+**Project:** Halverson's Board Memo, Built Across the Course
+**What you're building this chapter:** The MM Baseline section of the memo: a precise statement of the MM theorem applied to your firm, with each of the four assumptions stress-tested for fit.
+**Tool:** Claude Project
+
+---
+
+**The Prompt:**
+
+```
+I'm working on Halverson's Board Memo. The portfolio (`04`) and WACC (`05`) sections are in.
+
+Chapter 7 taught:
+- **MM Proposition I (frictionless)**: under no taxes, no bankruptcy costs, no information asymmetry, and equal borrowing rates, firm value is independent of capital structure
+- **MM Proposition II**: as leverage rises, expected return on equity rises proportionally — the cost of equity is increasing in the debt ratio
+- The point is *not* that MM is true in the real world — it's that MM identifies which frictions matter
+
+Produce `07-mm-baseline.md` containing:
+
+1. **State MM precisely for your firm.** One paragraph. "If Halverson operated in the MM world, its enterprise value would be \$X billion regardless of whether it carried 20% debt or 80% debt or zero debt. The cash flows from operations are the only thing that matters."
+
+2. **Walk through each of the four assumptions and ask: does it hold?**
+   - **No corporate taxes.** Halverson pays a 24% marginal tax rate. *Assumption violated; tax shield is real.*
+   - **No bankruptcy costs.** Halverson is investment-grade; bankruptcy costs are low but not zero. *Assumption partially violated.*
+   - **No information asymmetry.** Halverson management knows things the market doesn't (covenant cushion, customer concentration trajectory). *Assumption clearly violated.*
+   - **Equal borrowing rates for firm and investors.** Halverson borrows at 5.2% (Chapter 5); a retail investor borrows at 8% on margin. *Assumption clearly violated.*
+
+3. **Rank the violations by impact on Halverson's specific capital-structure choice.** Which violation matters most for *your* firm? An investment-grade industrial: tax shield dominates. A growth-stage tech firm: information asymmetry dominates. A real-estate firm: bankruptcy cost dominates.
+
+4. **State the MM-derived value of debt.** Present value of the tax shield = $T_c \cdot D$ at the simplest treatment. Compute this number for your firm at the current debt level and at a +20% debt level. The difference is the *MM-with-taxes* case for adding debt.
+
+5. **The closing sentence.** The MM baseline tells you that adding debt to Halverson is worth approximately $T_c \cdot \Delta D$ in tax-shield value, *before* considering bankruptcy cost, agency cost, and signaling — which is what Chapter 8 takes up.
+```
+
+---
+
+**What this produces:** A markdown document `07-mm-baseline.md` containing the precise MM statement, the four-assumption stress-test ranked by impact on your firm, the MM-with-taxes tax-shield value, and the framing for Chapter 8.
+
+**How to adapt this prompt:**
+
+- *For your own project:* Substitute your firm for Halverson where Halverson appears; the exercise structure is firm-agnostic. Halverson's named cast (Diane / Priya / Cardinal) is scaffolding — replace as needed.
+- *For ChatGPT / Gemini:* Works as-is. For ChatGPT, save the running memo to a Custom GPT instead of a Claude Project. For Gemini, paste the project's accumulated section files into the context window each session.
+- *For Claude Code:* Not needed for this section.
+- *For a Claude Project:* Append to the project. The MM baseline is the foundation — Chapter 8 builds the real-world adjustments on top of it.
+
+**Connection to previous chapters:** Chapters 1–6 analyzed projects; Chapter 7 starts the firm-level financing analysis with the simplest possible baseline.
+
+**Preview of next chapter:** Chapter 8 takes the MM baseline and adds back the frictions — producing the recommended target debt-to-capital ratio for the firm.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Merton Miller** was co-publishing the *Modigliani-Miller theorem* in 1958 — the result that, under specific frictionless-market assumptions, the value of a firm is independent of how it is financed decades before most people had heard of capital structure theory in the Modigliani-Miller world. Here's a prompt to find out more — and then make it better.
+
+![Merton Miller, c. 1990. AI-generated portrait based on a public domain photograph (Wikimedia Commons).](images/merton-miller.jpg)
+*Merton Miller, c. 1990. AI-generated portrait based on a public domain photograph.*
+
+**Run this:**
+
+```
+Who was Merton Miller, and how does the 1958 *Modigliani-Miller theorem* — that under perfect-market assumptions a firm's value is independent of its debt-equity mix — connect to the chapter's argument that the MM result is most useful as a *baseline* whose required violations name the real determinants of capital structure? Keep it to three paragraphs. End with the single most surprising thing about his career or ideas.
+```
+
+→ Search **"Merton Miller"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain *the MM irrelevance theorem* in plain language, as if you've never seen capital-structure mathematics
+- Ask it to compare Miller's 1958 paper to the messier 1963 paper accounting for taxes — what changed and why it matters
+- Add a constraint: "Answer as if you're writing the case for *why MM is the right baseline* in a corporate finance class"
+
+What changes? What gets better? What gets worse?
+

@@ -31,7 +31,14 @@ $$\text{WACC} = \frac{E}{V} \cdot R_e + \frac{D}{V} \cdot R_d \cdot (1 - T)$$
 
 where $E$ is the market value of equity, $D$ is the market value of debt, $V = E + D$ is total firm value, $R_e$ is the cost of equity, $R_d$ is the pretax cost of debt, and $T$ is the marginal corporate tax rate. Six inputs. Let me take them in order of how much judgment each one requires — starting with the mechanical ones and working toward the contested ones.
 
-<!-- → [TABLE: six-input inventory — columns: input, Halverson's value, source, degree of judgment (low/medium/high) — rows: E (market equity), D (market debt), R_d pretax, tax rate T, weights E/V and D/V, R_e from CAPM — student should see at a glance which inputs are looked up and which are argued] -->
+| Input | Halverson's value | Source | Degree of judgment |
+|---|---|---|---|
+| **E (market equity)** | $1,840M | Shares outstanding × current price | **Low** (looked up) |
+| **D (market debt)** | $660M | YTM-implied market value of outstanding debt | **Low** |
+| **R_d (pretax cost of debt)** | 5.2% | YTM on outstanding bonds | **Low** |
+| **Tax rate (T)** | 24% | Marginal — federal + state, blended | Medium (statutory vs. effective is a judgment) |
+| **Weights E/V and D/V** | 73.6% / 26.4% (book); 50/50 (target) | Book vs. target — the choice itself is a judgment | **High** |
+| **R_e (cost of equity from CAPM)** | 9.8% | $r_f + \beta(\text{ERP})$ — beta = 1.1, ERP = 5.0%, $r_f$ = 4.2% | **High** (every input argued) |
 
 **Market values, not book values.** The formula calls for the market values of $E$ and $D$, not the book values from the balance sheet. For equity this is unambiguous: shares outstanding times current price. The book value of equity reflects accumulated retained earnings and historical accounting choices; it is almost never the right denominator. For debt, the market value differs from book when interest rates have moved since the bonds were issued. Halverson issued $300M of bonds at 5% in 2021. If current market rates for similarly rated debt are 5.2%, those bonds trade at a slight discount. The difference is small for investment-grade debt with modest rate moves and large for distressed debt or significant rate shifts. The discipline is simple: use market values when available, document clearly when you substitute book values.
 
@@ -93,7 +100,13 @@ With the same debt and weights:
 
 $$\text{WACC} = 0.70 \times 12.0\% + 0.30 \times 4.0\% = 8.40\% + 1.20\% = 9.60\%$$
 
-<!-- → [TABLE: two-way sensitivity table — rows: beta values (0.9, 1.1, 1.3), columns: ERP values (4.5%, 5.0%, 6.0%) — cell contents: resulting WACC — student should see the full range of defensible WACCs (roughly 7.5% to 9.6%) arrayed as a grid rather than as a single point estimate, and notice that the base case of 8.0% sits near the optimistic corner] -->
+| | ERP 4.5% | ERP 5.0% | ERP 6.0% |
+|---|---|---|---|
+| **β = 0.9** | 7.5% | 7.7% | 8.1% |
+| **β = 1.1** (base) | 7.8% | **8.0%** | 8.6% |
+| **β = 1.3** | 8.2% | 8.5% | 9.6% |
+
+*The defensible WACC for Halverson runs roughly 7.5% to 9.6% depending on β and ERP. The base case of 8.0% sits near the optimistic corner of the grid — anyone arguing for a higher β or higher ERP would push the rate to 8.5–9.6%.*
 
 Plant 4's NPV at 9.6% is substantially lower than at 8.0%. Whether it is still positive depends on the project's cash flows, but the decision can flip. Maya is about to recommend approval of a major capital project on the basis of an NPV that is sensitive, in an unknown direction, to inputs nobody has revisited since last quarter.
 
@@ -109,7 +122,8 @@ The question of whether it does is an operational one, not a financial one. A ne
 
 Operations teams almost never do this. The FP&A spreadsheet has one WACC for all projects. Maya's job, on this particular memo, is to check: does Plant 4 look like a typical Halverson investment? If so, 8% is the right number. If it represents a departure — new geography, new product line, different operating leverage — the right rate is probably higher, and the NPV that looks positive at 8% should be stress-tested at 10% or 12% before the recommendation goes to Diane.
 
-<!-- → [IMAGE: decision tree for choosing the right discount rate — branch 1: "Project risk matches firm average?" → yes → use firm WACC; → no → branch 2: "Project has identifiable comparable firms?" → yes → estimate project beta from comps, build project WACC; → no → apply management judgment uplift (e.g., +200–300 bps) and document — student should see this as a repeatable diagnostic, not a one-time calculation] -->
+![Decision tree for choosing the right discount rate: firm WACC, comparable-firm-derived project WACC, or management uplift](images/05-the-cost-of-capital-and-the-wacc-fig-01.png)
+*Figure 5.1 — Choosing the right discount rate*
 
 The operations team's footnote does not specify which case applies. This is Maya's flag for the memo.
 
@@ -162,3 +176,81 @@ The defensible move is the one Maya is learning to make for every analytical cla
 ### Challenge
 
 **10.** The WACC formula assumes the capital structure — and therefore the tax shield — remains constant over the project's life. For a project financed with a term loan that amortizes to zero over ten years, this assumption clearly fails: the debt weight falls from, say, 40% to 0% as the loan is repaid. Describe qualitatively how this violates the WACC's assumptions, and explain what analytical approach a practitioner could use instead to correctly value the project's tax shield under a declining debt schedule. (You do not need to compute a full solution — explain the logic.) *(Tests: identifying the limits of the constant-WACC assumption; pointing toward APV as an alternative framework)*
+
+---
+
+###  LLM Exercise — Chapter 5: The Cost of Capital and the WACC
+
+**Project:** Halverson's Board Memo, Built Across the Course
+**What you're building this chapter:** The WACC Section of the memo: the firm WACC computed from first principles, stress-tested against ±100bp on each input, and defended against the FP&A footnote version.
+**Tool:** Claude Code
+
+---
+
+**The Prompt:**
+
+```
+I'm working on Halverson's Board Memo. The capital-budget portfolio is in `analysis/04-portfolio-ranked.md`.
+
+Chapter 5 taught:
+- **The three meanings of cost of capital** — provider required return, hurdle rate, weighted-average cost — and how they drift apart in real firms
+- **The WACC formula**: $\text{WACC} = (E/V) \cdot r_e + (D/V) \cdot r_d \cdot (1-T_c)$
+- **Sensitivity** — small input changes can move the WACC by 100+ bp, which moves NPV by double-digit percentages
+
+Scaffold `analysis/05-wacc.py`:
+
+1. **Compute the cost of equity via CAPM.** $r_e = r_f + \beta \cdot (E[r_m] - r_f)$. Pull β by regressing your firm's monthly returns on the S&P 500 over the last 5 years (use `yfinance`). Use the current 10-year Treasury for $r_f$. Use 5.5% as the historical equity risk premium (or defend a different number).
+
+2. **Compute the cost of debt.** Average yield-to-maturity on the firm's outstanding debt, from the 10-K's debt schedule. If unavailable, use the rating-implied yield (BBB ≈ Treasury + 150bp; BB ≈ Treasury + 350bp).
+
+3. **Compute the WACC.** Use the *target* debt-to-capital ratio (not the book ratio) — pull from the firm's stated capital-structure policy or use the trailing 5-year average.
+
+4. **Stress-test.** Build a ±100bp sensitivity table: rows are each input ($r_f$, β, equity risk premium, $r_d$, target debt weight, marginal tax rate), columns are -100bp / -50bp / 0 / +50bp / +100bp. Cells are the resulting WACC.
+
+5. **Re-rank the Chapter 4 portfolio at the new WACC.** Take the corner of the sensitivity table that most plausibly represents *the WACC the FP&A team should be using next quarter*. Re-run the knapsack from `analysis/04-budget-portfolio.py`. Did the prioritization change? Which projects moved into or out of the recommended set?
+
+6. **Produce `analysis/05-wacc.md`** containing: the WACC point estimate with provenance for each input, the sensitivity table, the alternative-WACC re-ranking, and a one-paragraph defense of the WACC the board memo will adopt.
+
+Run with `python analysis/05-wacc.py --ticker [TICKER]`.
+```
+
+---
+
+**What this produces:** A runnable script `analysis/05-wacc.py` plus `analysis/05-wacc.md` containing the WACC point estimate, the sensitivity table, the impact on the Chapter 4 portfolio, and the defended adopted rate.
+
+**How to adapt this prompt:**
+
+- *For your own project:* Substitute your firm for Halverson where Halverson appears; the exercise structure is firm-agnostic. Halverson's named cast (Diane / Priya / Cardinal) is scaffolding — replace as needed.
+- *For ChatGPT / Gemini:* Works as-is. For ChatGPT, save the running memo to a Custom GPT instead of a Claude Project. For Gemini, paste the project's accumulated section files into the context window each session.
+- *For Claude Code:* Right tool — pulling beta from `yfinance`, building the sensitivity table, and re-ranking the portfolio is multi-step quantitative work.
+- *For a Claude Project:* Append to the project. The defended WACC here is the headline rate the rest of the memo discounts at.
+
+**Connection to previous chapters:** Chapter 4 used a placeholder WACC; Chapter 5 produces the defended rate and shows what changes when the rate moves.
+
+**Preview of next chapter:** Chapter 6 asks whether *the same* WACC is the right rate for *every* project — or whether some projects (high-risk, optionality-heavy) need their own rate.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Fischer Black** was co-developing the option-pricing apparatus, *and* — less famously — extending CAPM into the *zero-beta model* in 1972, which is the foundational case for how a firm's cost of capital is actually estimated when borrowing rates differ from the textbook risk-free rate decades before most people had heard of the cost of capital and the weighted average cost of capital (WACC). Here's a prompt to find out more — and then make it better.
+
+![Fischer Black, c. 1980s. AI-generated portrait based on a public domain photograph (Wikimedia Commons).](images/fischer-black.jpg)
+*Fischer Black, c. 1980s. AI-generated portrait based on a public domain photograph.*
+
+**Run this:**
+
+```
+Who was Fischer Black, and how does his 1972 *zero-beta CAPM* — extending Sharpe's model to handle the realistic case where borrowing and lending rates differ — connect to the chapter's apparatus for estimating a firm's cost of equity, cost of debt, and weighted average cost of capital? Keep it to three paragraphs. End with the single most surprising thing about his career or ideas.
+```
+
+→ Search **"Fischer Black"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain *the zero-beta CAPM* in plain language, as if you've already seen the standard CAPM
+- Ask it to compare Black's adjustment to the practical case where a firm's borrowing rate is 7% and the risk-free Treasury is 3%
+- Add a constraint: "Answer as if you're writing the cost-of-capital methodology section of a corporate finance policy"
+
+What changes? What gets better? What gets worse?
+

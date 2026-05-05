@@ -20,7 +20,15 @@ An initial public offering is when a private firm sells shares to the public for
 
 A seasoned equity offering is when a firm that is already public sells additional shares. The mechanics are similar but simpler: the price is observable, the investor base is established, and the information asymmetry between the firm and the market is smaller. Halverson is already public. The relevant case for Maya is the SEO. But the forces that drive costs in both transactions are the same, and the IPO version is more dramatic, so I will use it to establish the structure before returning to the SEO arithmetic.
 
-<!-- → [TABLE: IPO vs. SEO side-by-side — rows: typical gross spread, average underpricing, announcement effect, key driver of each cost, information asymmetry level — student should see that every cost is lower for SEOs and understand why the reduction traces back to the resolution of information asymmetry] -->
+| Cost component | Typical IPO | Typical SEO |
+|---|---|---|
+| **Gross spread** | 6–7% | 3–5% |
+| **Average underpricing** | 10–20% (sometimes much higher) | 2–4% |
+| **Announcement effect** | Initial-day pop; lockup-expiry pressure | Negative 1–3% on announcement |
+| **Key driver of each cost** | Information asymmetry between issuer and market — who is the firm? | Information asymmetry already largely resolved |
+| **Information asymmetry level** | High (no prior trading history) | Lower (price discovery has been happening) |
+
+*Every cost is lower for SEOs because the prior trading history has already done some of the price-discovery work.*
 
 ---
 
@@ -155,3 +163,82 @@ Maya's $24 million direct cost estimate is right for Halverson's SEO. The invisi
 ---
 
 *Tags: IPO, seasoned equity offering, gross spread, underpricing, winner's curse, announcement effect, pecking order, cost of equity issuance*
+
+---
+
+###  LLM Exercise — Chapter 10: Raising Capital
+
+**Project:** Halverson's Board Memo, Built Across the Course
+**What you're building this chapter:** The Issuance Plan section of the memo: a financing-options memo for the capital the firm needs to raise (debt issuance, equity issuance, convertible, private placement), with the recommended structure defended against the alternatives.
+**Tool:** Claude Project
+
+---
+
+**The Prompt:**
+
+```
+I'm working on Halverson's Board Memo. The target capital structure is in `08-target-structure.md`; the FY26 payout in `09-payout-policy.md`.
+
+Chapter 10 taught:
+- **The IPO process**: registration, roadshow, book-building, allocation, lockup
+- **Secondary offerings**: how follow-on equity issuance differs from an IPO
+- **Underpricing**: typical IPO leaves 10–20% on the table — a real cost of going to market
+- **Alternatives**: PIPE, private placement, convertible note, secured vs. unsecured debt issuance
+
+Most firms in this book are public, so the relevant exercise is *secondary issuance vs. debt issuance vs. convertible*. (For a private firm, run the IPO version and substitute equity proceeds at a defended valuation.)
+
+Produce `10-issuance-plan.md` containing:
+
+1. **The capital-raising need.** From Chapter 4 (the portfolio cost) and Chapter 8 (the path to target capital structure), state the dollar amount of new capital the firm needs to raise in the next 12–18 months. Be specific.
+
+2. **Three financing options.** For each of: (a) senior unsecured debt issuance, (b) secondary equity offering, (c) convertible note, build a one-page summary including:
+   - The all-in cost (yield + fees for debt; underpricing + fees for equity; coupon + dilution-on-conversion for convertible)
+   - The capital-structure impact (does it move the firm toward or away from the Chapter 8 target?)
+   - The signaling content
+   - The market-window considerations (current credit spreads, current equity valuation, current convertible-bond appetite)
+
+3. **The recommended structure.** Pick one (or a mix). Defend against the two not chosen. The case for *not* doing this issuance at all is also a defensible answer — name what the firm gives up by deferring.
+
+4. **The execution plan.** Lead bookrunner, timing, indicative pricing range, lockup structure if applicable. The level of detail should be enough that the audit-committee chair could ask "what's our backup plan if the deal is undersubscribed?" and you'd have an answer.
+```
+
+---
+
+**What this produces:** A markdown document `10-issuance-plan.md` containing the capital-raising need, the three-option comparison, the recommended structure, and the execution plan.
+
+**How to adapt this prompt:**
+
+- *For your own project:* Substitute your firm for Halverson where Halverson appears; the exercise structure is firm-agnostic. Halverson's named cast (Diane / Priya / Cardinal) is scaffolding — replace as needed.
+- *For ChatGPT / Gemini:* Works as-is. For ChatGPT, save the running memo to a Custom GPT instead of a Claude Project. For Gemini, paste the project's accumulated section files into the context window each session.
+- *For Claude Code:* Not needed.
+- *For a Claude Project:* Append to the project. The chosen issuance structure interacts with Chapter 9's payout policy (issuing while paying out is a red flag) — flag the linkage.
+
+**Connection to previous chapters:** Chapter 9 returned capital; Chapter 10 raises it. The two together are the firm's external-capital interface.
+
+**Preview of next chapter:** Chapter 11 turns to the largest single decisions a CFO makes: M&A. Maya's Cardinal valuation is the worked exercise.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Maggie Lena Walker** was founding *St. Luke Penny Savings Bank* in 1903 — becoming the first African-American woman to charter and run a US bank, raising capital from communities the established financial system was designed to exclude decades before most people had heard of raising capital through public markets and the costs of going to them. Here's a prompt to find out more — and then make it better.
+
+![Maggie Lena Walker, c. 1910. AI-generated portrait based on a public domain photograph (Wikimedia Commons).](images/maggie-lena-walker.jpg)
+*Maggie Lena Walker, c. 1910. AI-generated portrait based on a public domain photograph.*
+
+**Run this:**
+
+```
+Who was Maggie Lena Walker, and how does her early-twentieth-century work mobilizing capital from a community the formal capital markets did not serve — through a chartered bank, an insurance company, and a department store — connect to the chapter's treatment of the costs of going to market and the structural barriers to raising capital that the standard IPO framework treats as fixed? Keep it to three paragraphs. End with the single most surprising thing about her career or ideas.
+```
+
+→ Search **"Maggie Lena Walker"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain why *who has access to capital markets* is a structural question rather than a regulatory one, in plain language
+- Ask it to compare Walker's St. Luke Penny Savings Bank to a modern community development financial institution (CDFI)
+- Add a constraint: "Answer as if you're writing the chapter introduction to a section on the structural costs of accessing public markets"
+
+What changes? What gets better? What gets worse?
+

@@ -247,3 +247,4 @@ Boston, March 2026
 ### Appendices
 
 *Errata, edition history, and contributor guidelines are maintained at the book's GitHub repository rather than in the printed text.*
+

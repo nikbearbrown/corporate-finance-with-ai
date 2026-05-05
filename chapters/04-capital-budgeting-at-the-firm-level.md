@@ -46,7 +46,17 @@ Capital expenditures are subtracted because they do leave the building as a chec
 
 The change in working capital is the one that business cases most often undercount. When Plant 4 starts running, Halverson needs to hold more inventory, carry more accounts receivable, and the difference between those and accounts payable is the additional cash Halverson has to tie up just to operate at the new scale. This isn't profit. It isn't an expense. It's cash that goes into the machinery of the business and stays there until the plant closes. Forgetting working capital in a capital budget isn't technically wrong — it's just an incomplete answer to where the cash went.
 
-<!-- → [TABLE: line-by-line FCFF build for Plant 4 across years 0–3 (illustrative figures), columns: Year 0, Year 1, Year 2, Year 3; rows: Revenue, EBIT, ×(1−tax rate) = NOPAT, +Depreciation, −Capex, −ΔWorking Capital, = FCFF — student should see Year 0 as large negative (construction + working capital draw), Years 1–3 turning positive and growing; callout arrow on the ΔWC row labeled "most often omitted"] -->
+| | Year 0 | Year 1 | Year 2 | Year 3 |
+|---|---|---|---|---|
+| Revenue | $0 | $30M | $50M | $60M |
+| EBIT | $0 | $8M | $18M | $25M |
+| × (1 − tax rate) → NOPAT | $0 | $6.1M | $13.7M | $19.0M |
+| + Depreciation | $0 | $5.0M | $5.0M | $5.0M |
+| − Capex | **−$50M** | −$2M | −$2M | −$2M |
+| − ΔWorking Capital | **−$5M** | −$3M | −$2M | −$1M |
+| **= FCFF** | **−$55M** | $6.1M | $13.7M | $21.0M |
+
+*Year 0 is large negative — construction plus the working-capital draw most analyses omit. Years 1–3 turn positive and grow as the ramp progresses.*
 
 Year zero of the Plant 4 projection is negative: the $50M construction cost plus a working capital investment to get operations started. Years one through ten are positive, starting modest as the plant ramps utilization and growing as it reaches full capacity. Year ten carries, in addition to that year's operating cash flow, a terminal value — a single number meant to represent everything the plant earns from year eleven to the end of its useful life.
 
@@ -92,7 +102,11 @@ The third is the discount rate. Halverson's firm-wide WACC is the right discount
 
 The operations team used 8%. Before accepting that number, the CFO's office should confirm: is Plant 4 a typical-risk project for Halverson, or riskier than typical? This question sounds soft but has a hard answer: you compare Plant 4's risk profile against Halverson's historical project universe and against comparable publicly-traded businesses if the profile is sufficiently different. "We used 8% because that's the firm WACC" is a flag, not an explanation. "We used 8% because Plant 4 is a domestic capacity expansion with existing technology, customers, and operating team, which puts it at or below average firm risk" is a defense.
 
-<!-- → [TABLE: the three failure modes side by side — columns: assumption, what the operations team modeled, what can go wrong, how to stress-test it, who inside Halverson owns the verification — rows: utilization ramp, cannibalization, discount rate — student should see this as a pre-flight checklist to run on any capital budget before signing the memo] -->
+| Assumption | What the operations team modeled | What can go wrong | How to stress-test it | Owner of verification |
+|---|---|---|---|---|
+| **Utilization ramp** | 90% of nameplate capacity by month 18, sustained thereafter | Slower ramp (production yields, training, certification); capacity comes online but customers don't | Run NPV at 60% / 75% / 90% sustained utilization; identify the breakeven utilization | Plant 4 program manager + sales |
+| **Cannibalization** | New capacity serves *new* demand — no overlap with existing plants | Customers who would have bought at higher margin from existing plants migrate to the lower-cost Plant 4 line | Estimate cannibalization at 0% / 10% / 25% of incremental volume | Sales operations |
+| **Discount rate** | Firm WACC of 8.0%, applied uniformly | Project risk is higher than firm average (new-plant ramp, single customer concentration on the line) | Use a project-specific rate from comparable-firm betas; report NPV at firm WACC and project rate | FP&A |
 
 ---
 
@@ -165,3 +179,81 @@ A number you can't question isn't a number. It's a prayer that nothing turns out
 ---
 
 *Tags: capital budgeting, NPV, free cash flow, terminal value, sensitivity analysis, utilization assumption, discount rate, capital expenditure*
+
+---
+
+###  LLM Exercise — Chapter 4: Capital Budgeting at the Firm Level
+
+**Project:** Halverson's Board Memo, Built Across the Course
+**What you're building this chapter:** The Capital-Budgeting Portfolio section of the memo: an NPV-ranked list of candidate projects under a budget constraint, with the prioritization defended and the binding constraint named.
+**Tool:** Claude Code
+
+---
+
+**The Prompt:**
+
+```
+I'm working on Halverson's Board Memo. Sections so far: `01-decision-frame.md`, `02-inside-read.md`, `03-working-capital.md`.
+
+Chapter 4 taught:
+- **NPV** as the primary decision rule (positive NPV = creates value, negative = destroys it)
+- **The firm-level portfolio problem**: not one project at a time but the prioritization-under-budget problem
+- **The difference between accept/reject and rank-under-constraint**
+
+Scaffold `analysis/04-budget-portfolio.py`:
+
+1. **Define the candidate-project set.** 6–10 projects the firm is currently considering. For Halverson use Plant 4 ($50M, projected $20M EBITDA), Cardinal acquisition ($700M, projected $50M synergized EBITDA), plus 4–6 organic projects you make up at plausible scales. For another firm: pull from the latest investor-day deck or 10-K capital-allocation discussion.
+
+2. **For each project**, define: initial investment, year-by-year cash-flow forecast (5–10 years), terminal value, and a project-specific discount rate (use the firm WACC for now — Chapter 5 refines this; Chapter 6 adjusts for project risk).
+
+3. **Compute NPV, IRR, profitability index** for each. Save as a CSV.
+
+4. **Solve the budget knapsack.** Given a total capital budget — pick a number consistent with the firm's recent cash flow plus available debt capacity — find the subset of projects that maximizes total NPV subject to the budget constraint. Use `scipy.optimize.milp` or `pulp`.
+
+5. **Identify the binding constraint.** The capital budget? Engineering capacity (Plant 4 needs the same engineering team as Project X)? Management bandwidth (the Penrose effect — see Ch 11's Wayback figure)? State the binding constraint explicitly.
+
+6. **Produce `analysis/04-portfolio-ranked.md`** containing: the NPV-ranked list, the recommended portfolio under the budget, the binding constraint, and a one-paragraph defense of the prioritization that an audit-committee chair could read in 90 seconds.
+
+The script runs with `python analysis/04-budget-portfolio.py --budget [DOLLARS] --wacc [RATE]`.
+```
+
+---
+
+**What this produces:** A runnable script `analysis/04-budget-portfolio.py` plus a results file `analysis/04-portfolio-ranked.md` containing the NPV ranking, the knapsack solution, the binding constraint, and a defensible prioritization.
+
+**How to adapt this prompt:**
+
+- *For your own project:* Substitute your firm for Halverson where Halverson appears; the exercise structure is firm-agnostic. Halverson's named cast (Diane / Priya / Cardinal) is scaffolding — replace as needed.
+- *For ChatGPT / Gemini:* Works as-is. For ChatGPT, save the running memo to a Custom GPT instead of a Claude Project. For Gemini, paste the project's accumulated section files into the context window each session.
+- *For Claude Code:* Right tool — NPV portfolio + integer-program knapsack is exactly Claude Code's wheelhouse. Use `pulp` or `scipy.optimize.milp`.
+- *For a Claude Project:* Append the portfolio markdown to the project. The recommended portfolio's total dollar amount becomes a constraint Chapter 5's WACC analysis must support and Chapter 8's capital structure must finance.
+
+**Connection to previous chapters:** Chapter 3 freed up working capital; Chapter 4 deploys it (and more) across an NPV-ranked portfolio.
+
+**Preview of next chapter:** Chapter 5 stress-tests the WACC that Chapter 4 used as the discount rate — and sees how much the prioritization moves under ±100bp shifts.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Joel Dean** was publishing *Capital Budgeting* in 1951 — the foundational text that brought NPV and IRR out of the journals and into corporate practice decades before most people had heard of capital budgeting at the firm level, with NPV as the primary decision rule. Here's a prompt to find out more — and then make it better.
+
+![Joel Dean, c. 1950s. AI-generated portrait based on a public domain photograph (Wikimedia Commons).](images/joel-dean.jpg)
+*Joel Dean, c. 1950s. AI-generated portrait based on a public domain photograph.*
+
+**Run this:**
+
+```
+Who was Joel Dean, and how does his 1951 book *Capital Budgeting* — translating present-value mathematics into a corporate decision rule — connect to the chapter's argument that NPV is not just a math technique but the structural form of every honest investment decision a firm makes? Keep it to three paragraphs. End with the single most surprising thing about his career or ideas.
+```
+
+→ Search **"Joel Dean economist"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain *NPV vs. IRR* in plain language, as if you've never run a capital-budgeting analysis
+- Ask it to compare Dean's 1951 framework to the modern stage-gate process at a Fortune 500 firm
+- Add a constraint: "Answer as if you're writing the policy memo establishing capital-budgeting standards for a new business unit"
+
+What changes? What gets better? What gets worse?
+

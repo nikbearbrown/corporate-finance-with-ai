@@ -23,7 +23,12 @@ The first kind studies how investors behave in capital markets — overreaction 
 
 The second kind studies how managers, boards, and analysts behave when making corporate decisions — the same human cognitive machinery, different context. Applied to the people who decide whether to build Plant 4, whether to acquire Cardinal, what discount rate to use, when to abandon a failing project. This is what the chapter covers. The distinction matters because the two kinds require different responses. Market behavioral finance says prices are wrong in systematic ways. Corporate behavioral finance says the people setting capital allocation are making systematic errors. The correction for the first is a trading strategy. The correction for the second is a different kind of discipline in how decisions get made.
 
-<!-- → [TABLE: two-column contrast of the two behavioral finance types — columns: market behavioral finance, corporate behavioral finance — rows: subject (investors in capital markets vs. managers and analysts inside firms), core claim (prices wrong in systematic ways vs. capital allocators making systematic errors), observable evidence (return anomalies, momentum, post-earnings drift vs. acquisition underperformance, project overruns, anchored discount rates), correction (trading strategy vs. deliberate process discipline) — student should see these as distinct fields requiring distinct responses, not two names for the same thing] -->
+| Dimension | Market behavioral finance | Corporate behavioral finance |
+|---|---|---|
+| **Subject** | Investors in capital markets | Managers and analysts inside firms |
+| **Core claim** | Prices wrong in systematic ways | Capital allocators making systematic errors |
+| **Observable evidence** | Return anomalies, momentum, post-earnings drift | Acquisition underperformance, project overruns, anchored discount rates |
+| **Correction** | Trading strategy designed to exploit the anomaly | Deliberate process discipline (pre-mortem, devil's advocate, range over point) |
 
 The four patterns below are in the second category. They are documented in the empirical literature on corporate decision-making. They are not exotic. They are the default.
 
@@ -83,7 +88,13 @@ Gary Klein's pre-mortem technique is the best counter-move. Before finalizing a 
 
 The pre-mortem is not a prediction that failure will occur. It is an exercise that forces the confirmation-biased mind to produce the arguments it would otherwise suppress.
 
-<!-- → [TABLE: pre-mortem vs. standard risk section — columns: dimension, standard risk section, pre-mortem — rows: framing (risks to current recommendation vs. causes of assumed failure), generation process (analyst identifies risks in current plan vs. analyst works backward from failure to cause), output specificity (often general and mitigated vs. specific mechanisms and early indicators), confirmation bias pressure (high — analyst motivated to minimize vs. low — failure is stipulated, analyst task is explanation), typical omissions (risks that would change recommendation vs. risks already handled in the plan) — student should see the pre-mortem as a structural fix, not just a reframing of the same thinking] -->
+| Dimension | Standard risk section | Pre-mortem |
+|---|---|---|
+| **Framing** | Risks to the current recommendation | Causes of an *assumed* failure two years from now |
+| **Generation process** | Analyst identifies risks in the current plan | Analyst works backward from a stipulated failure to its causes |
+| **Output specificity** | Often general ("execution risk") and quickly mitigated | Specific named mechanisms with early indicators |
+| **Confirmation-bias pressure** | High — analyst is motivated to minimize | Low — failure is stipulated, the analyst's task is explanation |
+| **Typical omissions** | Risks that, if surfaced, would change the recommendation | Risks already handled in the plan (so no need to revisit) |
 
 ---
 
@@ -101,7 +112,13 @@ The fourth: a macro event — recession, commodity shock, supply chain disruptio
 
 The fifth: a material liability that diligence did not surface — a contract exposure, a regulatory issue, an environmental contingency — emerges post-close. These are rare but not negligible in complex industrial businesses. Early indicator: legal department flagging documentation gaps; unusual creditor or regulator inquiries.
 
-<!-- → [TABLE: five pre-mortem scenarios — columns: scenario, mechanism by which it damages deal economics, early indicator trigger, predetermined response — rows: (1) customer consolidation, (2) management bandwidth exhaustion, (3) founder departure, (4) macro compression, (5) undisclosed liability — student should see each scenario as a complete unit: not just a risk named, but a signal defined and a response pre-committed] -->
+| Scenario | Mechanism by which it damages deal economics | Early indicator trigger | Predetermined response |
+|---|---|---|---|
+| **Customer consolidation** | Top-2 Cardinal accounts merge or are acquired; combined buying power forces price renegotiation | Customer M&A activity in the segment; renegotiation requests within 6 months of close | Reopen synergy assumptions; size the price-concession reserve in the integration plan |
+| **Management bandwidth exhaustion** | Halverson integration team can't run integration *and* core operations; product roadmap slips | Two consecutive quarters of integration milestones missed | Bring in external integration support; reduce the Q4 product release to defer roadmap pressure |
+| **Founder departure** | Cardinal founder, despite retention agreement, accelerates departure; institutional knowledge walks | Founder-engagement metrics drop (meeting attendance, decision frequency) | Activate the 24-month transition agreement's milestone-payment clawback; accelerate knowledge-transfer to named internal owners |
+| **Macro compression** | Industrial demand softens; both standalone and synergy projections weaken | Two-quarter compression in industry order books > 8% | Revisit the integration spend pace; defer non-essential capex; hold the buyback authorization |
+| **Undisclosed liability** | Pre-close diligence missed an environmental, IP, or customer claim that surfaces post-close | Counsel notification of any claim within 18 months post-close | R&W insurance claim activation; reserve build; named legal-defense owner with quarterly board update |
 
 Across these five scenarios, there is something approaching a fifty to sixty percent probability that at least one of them materializes within twenty-four months of close. None individually breaks the acquisition economics. Combinations could. The integration plan should include the early indicators as explicit monitoring triggers, with predetermined responses defined before the situation arises — so that when an indicator fires, the organizational response does not require a fresh decision under pressure.
 
@@ -160,3 +177,84 @@ That is the standard. Not perfect foresight. Calibrated honesty about the gap be
 ### Challenge
 
 **10.** The chapter presents four counter-moves: reference class forecasting (against overconfidence), independent re-derivation of anchored estimates (against anchoring), the sunk-cost reset question (against escalation), and the pre-mortem (against confirmation bias). Each counter-move is a process intervention — it requires a person to deliberately do something uncomfortable against the grain of their natural cognitive tendency. Construct the strongest argument that these counter-moves will fail under real organizational conditions, even when practitioners know about them and intend to use them. Then propose one structural change — not a cognitive technique but an organizational design feature — that would make the failure less likely. *(Tests: stress-testing the chapter's own prescriptions; distinguishing cognitive from structural interventions)*
+
+---
+
+###  LLM Exercise — Chapter 14: Behavioral Corporate Finance
+
+**Project:** Halverson's Board Memo, Built Across the Course
+**What you're building this chapter:** The Debiasing section of the memo: a structured pre-mortem on Maya's draft recommendation, identifying the specific managerial biases most likely affecting it and the protocol to surface them before the board reads the memo.
+**Tool:** Claude Project
+
+---
+
+**The Prompt:**
+
+```
+I'm working on Halverson's Board Memo. Sections 1–13 are drafted.
+
+Chapter 14 taught:
+- **Managerial overconfidence** — the most-replicated finding in behavioral corporate finance
+- **Anchoring** — early numbers in a process disproportionately influence later ones
+- **Sunk-cost fallacy** — we keep funding projects that should be killed because of money already spent
+- **Market timing** — managers issue equity when they think it's overvalued (and they're often wrong)
+- **Confirmation bias** — we collect evidence that supports the conclusion we've already reached
+
+Produce `14-debiasing.md` containing:
+
+1. **The pre-mortem.** Imagine it is two years from now and the recommendation in this memo turned out badly. Why did it fail? Brainstorm 5–8 named failure modes — specific, not generic. Bad: "Cardinal didn't perform." Good: "Cardinal's largest customer chose to dual-source after announcement, eroding 20% of projected revenue, and Halverson's integration team was diverted from product roadmap by the IT consolidation, costing market share to AmericanBlower in Q4."
+
+2. **The bias audit.** For each of the four major sections of the memo (Capital Allocation Ch 4, Capital Structure Ch 8, Payout Policy Ch 9, M&A Ch 11), ask:
+   - **What anchor was in place when the analysis started?** (e.g., the FP&A WACC of 8% — was it questioned?)
+   - **What confirming evidence got more weight than disconfirming?** (e.g., synergy estimates that supported the deal vs. data points that didn't)
+   - **What sunk-cost dynamic might be operating?** (e.g., Cardinal CEO has been talking with our CEO for 6 months — does that history make declining the deal harder?)
+   - **What managerial overconfidence shows up in our forecasts?** (compare projected revenue growth to industry growth — is the "we'll outgrow the market" claim defensible?)
+
+3. **Three concrete debiasing moves to install before the board reads the memo.**
+   - **Devil's-advocate review**: name a person inside or outside the firm whose explicit job is to argue against the recommendation. Insist on a written counter-memo.
+   - **Pre-mortem with named owners**: each failure mode in #1 gets a named *what would we do?* response, not a hand-wave.
+   - **Range, not point**: every projection in the memo carries a 90% confidence interval, not a single number. The board reads the range; the management team reads the inputs that move it.
+
+4. **The honest closing paragraph.** What is the strongest argument *against* the memo's recommendation that you have not already addressed? Write it. If you can't write it, the memo is not yet ready.
+```
+
+---
+
+**What this produces:** A markdown document `14-debiasing.md` containing the pre-mortem, the bias audit by section, the three debiasing moves, and the honest closing paragraph naming the strongest counter-argument.
+
+**How to adapt this prompt:**
+
+- *For your own project:* Substitute your firm for Halverson where Halverson appears; the exercise structure is firm-agnostic. Halverson's named cast (Diane / Priya / Cardinal) is scaffolding — replace as needed.
+- *For ChatGPT / Gemini:* Works as-is. For ChatGPT, save the running memo to a Custom GPT instead of a Claude Project. For Gemini, paste the project's accumulated section files into the context window each session.
+- *For Claude Code:* Not needed for this section — the work is reflective, not computational.
+- *For a Claude Project:* Append to the project. The debiasing pass produces edits that propagate back into Chapters 4, 8, 9, and 11 — be ready to revise prior sections based on what surfaces here.
+
+**Connection to previous chapters:** Chapters 1–13 produced the analysis; Chapter 14 stress-tests the analysis against the predictable cognitive errors of the people who produced it.
+
+**Preview of next chapter:** Chapter 15 — the capstone — assembles every prior chapter's section into one integrated 6-page board memo with decision triggers.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Daniel Bernoulli** was publishing the *Exposition of a New Theory on the Measurement of Risk* in 1738 — the foundational treatment of expected utility, the St. Petersburg paradox, and the gap between mathematical expected value and actual human decision-making under uncertainty decades before most people had heard of behavioral corporate finance and the systematic deviations from rational-actor models. Here's a prompt to find out more — and then make it better.
+
+![Daniel Bernoulli, c. 1750. AI-generated portrait based on a public domain engraving (Wikimedia Commons).](images/daniel-bernoulli.jpg)
+*Daniel Bernoulli, c. 1750. AI-generated portrait based on a public domain engraving.*
+
+**Run this:**
+
+```
+Who was Daniel Bernoulli, and how does his 1738 *Exposition of a New Theory on the Measurement of Risk* — including the St. Petersburg paradox and the case for expected *utility* over expected *value* — connect to the chapter's argument that behavioral corporate finance is largely a catalog of where actual managerial decisions deviate from the rational-actor benchmarks the prior chapters built? Keep it to three paragraphs. End with the single most surprising thing about his career or ideas.
+```
+
+→ Search **"Daniel Bernoulli"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain *the St. Petersburg paradox* in plain language, as if you've never seen utility theory
+- Ask it to compare Bernoulli's 1738 framing of risk aversion to Kahneman and Tversky's prospect theory
+- Add a constraint: "Answer as if you're writing the historical preface to a chapter on managerial overconfidence"
+
+What changes? What gets better? What gets worse?
+

@@ -46,7 +46,8 @@ External financing could fill the gap, but external financing is expensive. Chap
 
 Hedging stabilizes internal cash flow, ensuring the firm can fund its capex program regardless of what happens to rates, exchange rates, or commodity prices in any given year. For Halverson — with Plant 4 construction underway, the Cardinal integration pending, and ongoing maintenance capital — this is the decisive argument. Halverson's value comes from deploying capital into productive assets. Anything that interrupts that deployment destroys value. Hedging protects the pipeline.
 
-<!-- → [IMAGE: Three-panel diagram showing the three imperfections — Distress Costs (nonlinear cost curve with threshold marked), Tax Convexity (two bar charts: volatile vs. smooth income, showing higher total tax for the volatile firm), Investment Pipeline (cash flow shortfall cutting off a capex project arrow). Intended to make all three value-creation mechanisms visible simultaneously before the chapter examines each exposure.] -->
+![Three-panel diagram of the frictions that justify hedging: distress costs, tax convexity, and investment-pipeline preservation](images/12-operational-risk-management-fig-01.png)
+*Figure 12.1 — Three frictions that make hedging valuable*
 
 ---
 
@@ -84,7 +85,8 @@ Transaction exposure is the risk on specific contracted future cash flows in for
 
 Translation exposure is the risk that the quarterly P&L looks different when pounds are converted to dollars for financial reporting. This is largely accounting — the underlying economics of the UK business have not changed, but the dollar number in the income statement has. Hedging translation exposure costs real money to smooth a number that long-term shareholders can look through.
 
-<!-- → [IMAGE: Two-column diagram distinguishing transaction exposure from translation exposure — left column shows a specific £5M contracted receipt with a timeline and a forward contract neutralizing it; right column shows the same UK business with a GBP/USD rate arrow affecting reported P&L but not underlying cash flows. The visual should make the hedge-it vs. don't-hedge-it distinction structural rather than a matter of degree.] -->
+![Two-column diagram contrasting transaction FX exposure (cash-real, hedgeable) with translation FX exposure (accounting-only)](images/12-operational-risk-management-fig-02.png)
+*Figure 12.2 — Transaction vs. translation FX exposure*
 
 The recommendation: hedge transaction exposure on contracted pound receipts using rolling forward contracts, sized to the actual payment schedule. Do not hedge translation exposure. The distinction matters both economically and in terms of hedge accounting treatment — improperly designed hedges create their own P&L volatility, which is the opposite of what the program is supposed to achieve.
 
@@ -98,7 +100,13 @@ The recommendation is to hedge 40 to 60% of net commodity exposure on a rolling 
 
 The right tool is credit insurance — a policy that pays out if a covered customer fails to pay within a defined period after the due date. Premiums run roughly 0.3 to 0.5% of insured amount annually. On $25 million of coverage across the two largest concentrations, annual cost is roughly $100,000. The benefit is protection against a tail event that, while unlikely, would be operationally disruptive during the Cardinal integration period when Halverson's financial attention is already strained.
 
-<!-- → [TABLE: Halverson hedging program summary — rows: Interest Rate Risk, FX Transaction Risk, FX Translation Risk, Commodity Risk, Counterparty Risk; columns: Exposure size, Recommended instrument, Hedge ratio, Annual cost, Primary value-creation argument (distress / pipeline / tax). The "Do not hedge" row for FX Translation should be explicit. Intended as the at-a-glance policy document that Tom's decision record would contain.] -->
+| Risk | Exposure size | Recommended instrument | Hedge ratio | Annual cost | Primary value-creation argument |
+|---|---|---|---|---|---|
+| **Interest Rate Risk** | $400M floating-rate debt | Pay-fixed swap on 50% of notional, 5-year tenor | 50% | $0.4M | Distress avoidance |
+| **FX Transaction Risk** | $80M EUR-denominated annual revenue | Rolling 12-month forwards | 70% | $0.6M | Pipeline preservation — supports the customer-quoted price |
+| **FX Translation Risk** | €40M net assets in UK subsidiary | **Do not hedge** | 0% | $0 | (No real cash-flow value; translation is an accounting artifact) |
+| **Commodity Risk** | $25M annual specialty-polymer purchases | 6-month forward purchase contracts | 60% | $0.3M | Pipeline preservation — locks margin on quoted-price contracts |
+| **Counterparty Risk** | Top-10 customer credit exposure | Trade-credit insurance on top-3 accounts | 100% | $0.4M | Distress avoidance + tax (deductible premium) |
 
 ---
 
@@ -189,3 +197,89 @@ Chapter 13 pulls together the threads from the second half of the book. Halverso
 
 **10.** The chapter identifies the hedger's regret problem — asymmetric accountability that creates pressure to hedge less than is economically optimal. Design a governance process for Halverson's hedging program that directly addresses this problem. The process should specify: how hedging decisions are documented before the fact, how outcomes are evaluated after the fact, and how the evaluation criteria distinguish between good decisions that had bad outcomes and bad decisions that had good outcomes. Then identify the organizational condition under which your process would fail to change behavior even if it were formally adopted.
 *Tests: converting the behavioral observation into a constructive governance mechanism; finding the boundary condition of your own solution.*
+
+---
+
+###  LLM Exercise — Chapter 12: Operational Risk Management
+
+**Project:** Halverson's Board Memo, Built Across the Course
+**What you're building this chapter:** The Risk Position section of the memo: a risk register with the top 5–10 operational risks priced (probability × impact), each with a retain-vs-transfer disposition and the resulting risk-capital allocation.
+**Tool:** Claude Project
+
+---
+
+**The Prompt:**
+
+```
+I'm working on Halverson's Board Memo. Sections 1–11 are in the project.
+
+Chapter 12 taught:
+- **Enterprise risk vs. operational risk**: the latter is what this chapter focuses on
+- **The retain-vs-transfer decision** (Borch theorem in spirit): which risks does the firm retain, which does it transfer through insurance / hedging / contractual allocation?
+- **Risk capital as a real budget item**: every retained risk is implicitly funded by equity capital
+
+Produce `12-risk-register.md` containing:
+
+1. **The top 5–10 operational risks.** For your firm, brainstorm:
+   - **Demand risk**: customer concentration, end-market cyclicality
+   - **Supply risk**: single-source supplier, raw-material price, logistics disruption
+   - **Operational risk**: a specific plant going down, a labor action, a system outage
+   - **Financial risk**: interest rate exposure, FX exposure, refinancing risk
+   - **Legal/regulatory risk**: environmental, antitrust, IP, employment
+
+   For each, name it specifically (not "supply chain risk" but "single-source supplier for the X polymer used in 60% of products").
+
+2. **Price each.** Probability (low / medium / high, with a percentage), impact ($ at stake), expected loss = P × I. Sort by expected loss.
+
+3. **The retain-vs-transfer disposition.** For each, recommend one of:
+   - **Retain** — the firm absorbs the loss; price it into the equity-capital budget
+   - **Transfer (insurance)** — buy a policy with the named premium and coverage limits
+   - **Transfer (hedge)** — use a financial derivative to lay off the exposure
+   - **Transfer (contractual)** — push the risk to a counterparty (supplier, customer, joint-venture partner)
+   - **Mitigate** — operational change that reduces P or I (build a second source, lengthen the contract, add redundancy)
+
+4. **The risk-capital number.** Sum the retained-risk expected losses. This is the implicit equity capital being held against operational risk. State it as a fraction of total equity. Flag if it's larger than the firm's stated risk appetite.
+
+5. **The named owner per risk.** Each risk needs an accountable executive — head of operations, head of supply chain, GC, CFO. The risk-register-without-owners is a forecast, not a policy.
+```
+
+---
+
+**What this produces:** A markdown document `12-risk-register.md` containing the prioritized risks, the retain-vs-transfer dispositions, the implicit risk-capital number, and the named owners.
+
+**How to adapt this prompt:**
+
+- *For your own project:* Substitute your firm for Halverson where Halverson appears; the exercise structure is firm-agnostic. Halverson's named cast (Diane / Priya / Cardinal) is scaffolding — replace as needed.
+- *For ChatGPT / Gemini:* Works as-is. For ChatGPT, save the running memo to a Custom GPT instead of a Claude Project. For Gemini, paste the project's accumulated section files into the context window each session.
+- *For Claude Code:* Optional — `analysis/12-risk-capital.py` can run a Monte Carlo over the retained risks to produce a 95th-percentile retained-loss estimate.
+- *For a Claude Project:* Append to the project. The risk position is the fourth of the four interdependent decisions in Chapter 15.
+
+**Connection to previous chapters:** Chapter 11 valued the largest single decision; Chapter 12 prices the firm-wide risk position that supports every decision.
+
+**Preview of next chapter:** Chapter 13 broadens the risk view to international exposures — currency, transfer pricing, country risk.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Karl Borch** was founding modern actuarial science as a quantitative discipline in the 1960s and 1970s — particularly his theorem that determines, mathematically, how much risk a firm should retain versus transfer through insurance decades before most people had heard of operational risk management and the retain-vs-transfer decision. Here's a prompt to find out more — and then make it better.
+
+![Karl Borch, c. 1970s. AI-generated portrait based on a public domain photograph (Wikimedia Commons).](images/karl-borch.jpg)
+*Karl Borch, c. 1970s. AI-generated portrait based on a public domain photograph.*
+
+**Run this:**
+
+```
+Who was Karl Borch, and how does his foundational work on the economics of insurance — particularly the *Borch theorem* on optimal risk sharing — connect to the chapter's framework for deciding which operational risks a firm should retain on its balance sheet and which it should transfer through insurance, hedging, or contractual allocation? Keep it to three paragraphs. End with the single most surprising thing about his career or ideas.
+```
+
+→ Search **"Karl Borch"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain *the Borch theorem on Pareto-optimal risk sharing* in plain language, as if you've never read actuarial mathematics
+- Ask it to compare Borch's 1960s framework to a modern enterprise-risk-management committee's retain-vs-transfer decision
+- Add a constraint: "Answer as if you're writing the risk-allocation policy for a manufacturer with global operations"
+
+What changes? What gets better? What gets worse?
+

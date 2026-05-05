@@ -42,7 +42,8 @@ $$\beta_{\text{asset}} = \frac{\beta_{\text{equity}}}{1 + (1 - t) \cdot D/E}$$
 
 where $t$ is the corporate tax rate and $D/E$ is the firm's debt-to-equity ratio. The asset beta removes the capital structure effect and gives a pure measure of business risk — the risk of the underlying operations, independent of how those operations are financed.
 
-<!-- → [IMAGE: Side-by-side diagram of two identical firms — same operations, different capital structures. Left firm: 20% debt, lower equity beta shown on a volatility curve. Right firm: 50% debt, higher equity beta on the same curve. Arrow labeled "unlevering" points from both to a shared asset beta in the center. Intended to make visceral why we must strip out capital structure before comparing betas across firms.] -->
+![Two-firm leverage diagram showing the unlever-to-asset-beta-then-relever-to-target procedure for project beta](images/06-risk-adjusted-rates-and-real-options-fig-01.png)
+*Figure 6.1 — Unlevering and relevering project beta*
 
 Once you have asset betas from several comparable firms, you average them, then re-lever using Halverson's capital structure for the project. This gives an equity beta appropriate for the project under Halverson's financing conditions. Plug into CAPM:
 
@@ -130,7 +131,8 @@ The decision tree maps out the scenarios, the probabilities, and the decisions a
 
 For Plant 4, the tree has two stages. At the root: commit now, or wait six months. The left branch is the standard NPV calculation — commit today at the risk-adjusted rate, NPV approximately $25 million. The right branch — wait — leads to a chance node where strong demand and weak demand each arrive with probability 0.5. At the strong-demand node, the optimal decision is to commit, realizing the $80 million NPV. At the weak-demand node, the optimal decision is to walk away, realizing $0.
 
-<!-- → [IMAGE: Decision tree for Plant 4. Root node (square): "Today — Commit now or wait 6 months." Left branch to terminal: "Commit now, NPV = $25M." Right branch to chance node (circle): "Wait 6 months." From chance node: upper branch (p = 0.5) to decision node "Strong demand" → "Commit, NPV = $80M"; lower branch (p = 0.5) to decision node "Weak demand" → "Do not commit, NPV = $0." Expected value of wait branch ≈ $40M shown in bold. Option value = $40M − $35M = $5M labeled. The "Do not commit" branch at the weak-demand node is the structural feature that makes the option worth anything — reader should see it clearly.] -->
+![Decision tree for the Plant 4 deferral option, showing commit-now vs. wait-six-months with strong/weak demand branches](images/06-risk-adjusted-rates-and-real-options-fig-02.png)
+*Figure 6.2 — The Plant 4 deferral option*
 
 The expected value of the right branch, discounted back six months at the project WACC, is approximately $40 million. The option to defer is worth about $5 million compared to the unconditional commitment — or about $15 million compared to the standard NPV calculation that assumed no optionality and the wrong discount rate simultaneously.
 
@@ -158,7 +160,13 @@ For Plant 4, the combined picture:
 | Project WACC (9%), no optionality | $25M |
 | Project WACC (9%), with deferral option | ~$30M |
 
-<!-- → [TABLE: Extend the three-row NPV summary table above with two additional columns — "What error it corrects" and "What the board is actually being asked to approve." Row 1: overpriced project / approve $50M today. Row 2: correctly priced, wrong strategy / approve $50M today. Row 3: correctly priced, correct strategy / approve up to $50M with six-month deferral right pending Q2 demand data. The third column makes visible that the recommendation's structure changes, not just the number.] -->
+| Scenario | NPV finding | What error it corrects | What the board is actually being asked to approve |
+|---|---|---|---|
+| **Row 1** — Original analysis at firm WACC | Negative NPV ($-3M$) at firm WACC | (No correction) — the project is overpriced as proposed | Approve $50M of capital today |
+| **Row 2** — Project-specific rate | Positive NPV ($+8M$) at project-specific rate of 9.5% | Corrects the discount-rate mismatch — the project's risk profile differs from the firm's | Approve $50M of capital today |
+| **Row 3** — Project-specific rate + deferral option | Positive NPV ($+15M$); option value $+7M$ | Corrects both the rate *and* the timing — flexibility is worth pricing in | Approve up to $50M with six-month deferral right pending Q2 demand data |
+
+*The third column makes visible that the recommendation's structure changes, not just the number.*
 
 The risk adjustment costs $17 million of apparent NPV. The real option recovers about $5 million. Net effect: the defensible number is roughly $30 million, not $42 million.
 
@@ -180,7 +188,14 @@ The probabilities are judgment calls. The 50/50 split between strong and weak de
 
 The pure-play betas are an approximation. The comparable firms are not identical to Plant 4. They have different capital structures, different product mixes, different positions in the economic cycle. The asset betas backed out from them contain noise. The project WACC of 9% should be thought of as "probably between 8.5% and 10%" rather than as a precise figure. The right response is to present a range — project NPV at 8.5%, 9%, 9.5% — so the board can see how sensitive the recommendation is to the rate assumption.
 
-<!-- → [TABLE: Sensitivity table — rows: discount rate (8.5%, 9.0%, 9.5%, 10.0%); columns: NPV without optionality, NPV with deferral option, option value. Shows how both NPV and option value move as the rate assumption varies. Intended to make the "present a range" advice concrete and to illustrate that option value is also rate-sensitive.] -->
+| Discount rate | NPV without optionality | NPV with deferral option | Option value |
+|---|---|---|---|
+| **8.5%** | +$12M | +$22M | $10M |
+| **9.0%** | +$5M | +$15M | $10M |
+| **9.5%** | +$0M | +$11M | $11M |
+| **10.0%** | −$5M | +$8M | $13M |
+
+*Both NPV and option value move with the discount rate. The option is *more* valuable as the rate rises — uncertainty becomes more expensive, so flexibility becomes more valuable.*
 
 Both limits point toward the same meta-point: the value of risk-adjustment and real options analysis is not that they produce precise numbers. It is that they force the right questions. Is this project actually riskier than our average? How much of the project's value depends on our ability to learn before committing? These questions improve the decision even when the quantitative answers are approximate.
 
@@ -255,3 +270,79 @@ Chapters 4 through 6 have treated capital budgeting as a single-firm problem —
 
 **10.** The "Still Puzzling" section identifies forecast bias — systematic optimism in project cash flow estimates — as a problem that risk-adjusted discount rates only partially address. Using the frameworks from this chapter and your own reasoning, design a practical procedure a CFO could use to detect and correct for forecast bias in capital project proposals. The procedure should be specific enough to implement (not just "be more skeptical") and should account for the organizational dynamic the chapter names: sponsors who are emotionally committed to approval. Then identify the one condition under which your procedure would fail to improve decision quality.
 *Tests: extending the chapter's admitted limit into a constructive solution; finding the boundary condition of your own answer.*
+
+---
+
+###  LLM Exercise — Chapter 6: Risk-Adjusted Rates and Real Options
+
+**Project:** Halverson's Board Memo, Built Across the Course
+**What you're building this chapter:** The Project-Specific-Rate and Real-Options section of the memo: the projects in your portfolio that need a risk-adjusted rate, and the real-option value of the most flexibility-rich project.
+**Tool:** Claude Code
+
+---
+
+**The Prompt:**
+
+```
+I'm working on Halverson's Board Memo. The WACC is defended in `analysis/05-wacc.md`.
+
+Chapter 6 taught:
+- **One discount rate doesn't always work** — projects with risk profiles different from the firm's average require project-specific rates
+- **Real options** — defer, abandon, expand, contract — have value that NPV alone misses
+- **The optionality premium** — flexibility is worth paying for when forecast uncertainty is high
+
+Scaffold `analysis/06-real-options.py`:
+
+1. **Identify the projects in your portfolio that have meaningfully different risk than the firm average.** For Halverson: a venture-style growth project has higher risk than a maintenance capex; a regulated utility build has lower risk. For each project, name its risk profile relative to the firm and recommend either *firm WACC* or *project-specific rate*.
+
+2. **Estimate one project-specific rate.** For the project whose risk profile is most different from the firm average, build a comparable-firm beta proxy (pull pure-play comparables from the same industry segment), unlever and relever beta against the project's target capital structure, and compute a project-specific cost of capital.
+
+3. **Identify the project with the most real-option content.** Look for: a project that can be deferred at low cost; a project that can be abandoned partway through with significant residual value; a project that creates a follow-on opportunity (an *expand* option). Pick one.
+
+4. **Quantify the real-option value.** Use either a binomial tree (Cox-Ross-Rubinstein) or a Black-Scholes analog. State the inputs: underlying value (the project's NPV today), exercise price (the cost to expand / continue), volatility (your best estimate of the underlying business's annualized vol), time to expiration (when the decision gates close).
+
+5. **Produce `analysis/06-real-options.md`** containing: the project-by-project risk-rate assignment, the one project-specific rate computed, the real-option valuation, and a one-paragraph case for whether the option value is large enough to change the Chapter 4 portfolio recommendation.
+
+Run with `python analysis/06-real-options.py --portfolio analysis/04-portfolio-ranked.md`.
+```
+
+---
+
+**What this produces:** A runnable script `analysis/06-real-options.py` plus `analysis/06-real-options.md` containing the project-rate assignments, one project-specific rate, one real-option valuation, and the impact on the portfolio recommendation.
+
+**How to adapt this prompt:**
+
+- *For your own project:* Substitute your firm for Halverson where Halverson appears; the exercise structure is firm-agnostic. Halverson's named cast (Diane / Priya / Cardinal) is scaffolding — replace as needed.
+- *For ChatGPT / Gemini:* Works as-is. For ChatGPT, save the running memo to a Custom GPT instead of a Claude Project. For Gemini, paste the project's accumulated section files into the context window each session.
+- *For Claude Code:* Right tool. Implementing the binomial tree and the comparable-firm beta unlever/relever is short but precise.
+- *For a Claude Project:* Append to the project. If real-option value is material, it goes in the *Recommendation* section of the Chapter 15 board memo as an explicit modifier on Chapter 4's NPV ranking.
+
+**Connection to previous chapters:** Chapter 5 produced one rate for the firm; Chapter 6 names where that one rate is wrong and what to use instead.
+
+**Preview of next chapter:** Chapter 7 takes a step back from project-level analysis to the firm-level capital-structure question — beginning with the Modigliani-Miller baseline.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Irving Fisher** was publishing *The Theory of Interest* in 1930 — the foundational treatment of how rational actors trade present consumption against uncertain future cash flows, the structural ancestor of every risk-adjusted discount rate and every real-option valuation decades before most people had heard of risk-adjusted rates and real options. Here's a prompt to find out more — and then make it better.
+
+![Irving Fisher, c. 1920s. AI-generated portrait based on a public domain photograph (Wikimedia Commons).](images/irving-fisher.jpg)
+*Irving Fisher, c. 1920s. AI-generated portrait based on a public domain photograph.*
+
+**Run this:**
+
+```
+Who was Irving Fisher, and how does his 1930 *Theory of Interest* — the formal account of intertemporal choice under uncertainty — connect to the chapter's apparatus for risk-adjusted discount rates and the real-options framework for projects whose value depends on flexibility, not certainty? Keep it to three paragraphs. End with the single most surprising thing about his career or ideas.
+```
+
+→ Search **"Irving Fisher"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain *Fisher's separation theorem* in plain language, as if you've never read intertemporal choice theory
+- Ask it to compare Fisher's discounting framework to the modern real-options approach for an R&D investment
+- Add a constraint: "Answer as if you're writing the discount-rate justification for a project with deferred information value"
+
+What changes? What gets better? What gets worse?
+

@@ -43,7 +43,12 @@ At Halverson's cost of capital, the cost synergies produce a present value of $2
 
 Here is the discipline that most acquisition models skip. The empirical record on synergy realization is asymmetric: cost synergies generally arrive because they are under direct management control, while revenue synergies generally do not because they require customer behavior changes that the acquirer cannot control. The right haircut for cost synergies is seventy to eighty percent of the stated value. The right haircut for revenue synergies is thirty to fifty percent. Apply those haircuts and the synergy NPV lands around $200–$270M.
 
-<!-- → [TABLE: synergy haircut model — columns: synergy category, gross estimate, haircut rationale, haircut range, haircutted NPV — rows: (1) cost synergies — procurement, duplicate functions, plant rationalization ($200–300M gross, 70–80% of stated value, empirically reliable under management control, $140–240M after haircut); (2) revenue synergies — cross-selling through Halverson distribution ($40–80M gross, 30–50% of stated value, requires customer behavior change acquirer cannot control, $12–40M after haircut) — student should see that the haircut asymmetry materially changes the deal economics and is not arbitrary] -->
+| Synergy category | Gross estimate | Haircut rationale | Haircut range | Haircutted NPV |
+|---|---|---|---|---|
+| **Cost synergies** — procurement, duplicate functions, plant rationalization | $200–300M | Empirically reliable; under management control; realized 60–90% of stated value in comparable deals | 70–80% retention | $140–240M |
+| **Revenue synergies** — cross-selling through Halverson distribution | $40–80M | Requires customer behavior change the acquirer cannot control; realized 20–40% in comparable deals | 30–50% retention | $12–40M |
+
+*The haircut asymmetry materially changes the deal economics and is not arbitrary. Revenue synergies routinely fail to materialize; cost synergies routinely do.*
 
 Now the deal arithmetic becomes visible.
 
@@ -65,7 +70,11 @@ The second is integration risk. Halverson has not done an acquisition this size 
 
 The third is the information asymmetry between buyer and seller. Cardinal's founder has run the firm for twenty-eight years. He knows the customer relationships, the operational quirks, and the soft spots better than any due diligence process can uncover in eight weeks. A deal that depends on him remaining as a transition advisor for twenty-four months is one risk profile. A deal where he exits at close is a substantially different risk profile. The terms matter, and the terms have not been settled.
 
-<!-- → [TABLE: three diligence flags and structural mitigations — columns: risk, mechanism by which it damages deal economics, proposed structural mitigation — rows: (1) customer concentration (35% revenue in two accounts, revenue synergy erosion, earnout/escrow tied to customer retention); (2) integration timeline slippage (Halverson inexperience + stretched functions, synergy NPV decays at 24+ months delay, name integration lead accountability and board-level quarterly tracking); (3) seller information advantage (28-year operational knowledge, hidden liabilities or dependency risks, 24-month transition agreement with milestone-linked retention) — student should see the direct link from each risk to its structural response] -->
+| Risk | Mechanism by which it damages deal economics | Proposed structural mitigation |
+|---|---|---|
+| **Customer concentration** (35% of Cardinal revenue in two accounts) | If either account leaves post-close, revenue synergies erode and the standalone case weakens; combined entity may need to absorb the loss | Earnout / escrow tied to top-2-customer retention through 24 months post-close |
+| **Integration timeline slippage** | Halverson has not done a deal this size in a decade; functions are stretched; synergy NPV decays at 24+ months delay | Name an integration lead with explicit accountability; quarterly board-level integration tracking with named milestones |
+| **Seller information advantage** | Founder has 28 years of operational knowledge; hidden liabilities or dependency risks may surface post-close | 24-month transition agreement with milestone-linked retention; reps & warranties insurance for known-risk categories |
 
 None of these flags kill the deal. They shape its structure and the expected post-deal performance. The recommendation is not simply a number; it is a number with conditions attached.
 
@@ -140,3 +149,83 @@ This is not a framework. It is a disposition — the habit of reading the negoti
 ### Challenge
 
 **10.** The *Still puzzling* section names three candidate explanations for why M&A activity persists despite negative average acquirer returns: CEO hubris, agency problems between managers and shareholders, and selection effects (the unannounced deals that didn't happen never appear in the data). For each explanation, (a) describe the specific mechanism by which it would produce the observed pattern of acquirer underperformance, (b) identify what evidence would distinguish it from the other two, and (c) assess whether the Halverson-Cardinal deal shows signs of each mechanism. Conclude with your own view of which explanation carries the most weight for strategic acquisitions by industrial firms. *(Tests: stress-testing the chapter's own "still puzzling" claim; applying competing explanations to the book's running case)*
+
+---
+
+###  LLM Exercise — Chapter 11: M&A
+
+**Project:** Halverson's Board Memo, Built Across the Course
+**What you're building this chapter:** The M&A Valuation and Recommendation section of the memo: a defensible valuation of a target across three approaches (DCF, comps, precedents), the synergy assumptions, and a recommendation that survives the empirical record on acquirer underperformance.
+**Tool:** Claude Code
+
+---
+
+**The Prompt:**
+
+```
+I'm working on Halverson's Board Memo. Sections 1–10 are in the project.
+
+Chapter 11 taught:
+- **The empirical record**: acquirers, on average, underperform — the deal premium plus integration costs frequently exceeds realized synergies
+- **Three valuation approaches**: DCF, trading comparables, precedent transactions
+- **Synergy realization**: the gap between projected and delivered synergies is the graveyard of acquisition theses
+
+For Halverson the running case is the **Cardinal Flow Systems** acquisition ($400M revenue, $80M EBITDA, ~$700M enterprise value under discussion). For your own firm: pick a real target your firm has discussed (in the press, on earnings calls, or internally) or pick a public target that fits your firm's strategic logic.
+
+Scaffold `analysis/11-ma-valuation.py`:
+
+1. **Pull the target's financials.** Revenue, EBITDA, EBIT, free cash flow for the last 5 years. Build a 10-year forecast.
+
+2. **DCF valuation.** Discount the projected FCF at a target-specific WACC. State the terminal-value method (Gordon growth or exit-multiple) and defend the parameters. Output a point estimate and a 5×5 sensitivity table on discount rate × terminal growth.
+
+3. **Trading comparables.** Identify 4–6 publicly traded comparables. Pull current EV/EBITDA, EV/Revenue, P/E. Apply the median multiple to the target's metrics. Output a multiples-implied valuation range.
+
+4. **Precedent transactions.** Identify 4–6 comparable M&A transactions in the last 5–7 years. Pull the announced enterprise-value-to-EBITDA multiples. Apply the median to the target. Output a precedent-implied valuation range.
+
+5. **The synergy assessment.** What synergies are claimed? Cost-side (procurement, headcount, facilities, IT) and revenue-side (cross-sell, geographic, channel). For each, ask: is this realistically deliverable? At what cost-to-achieve? Discount the gross synergy by a realization factor (50–70% is honest for most deals).
+
+6. **The recommendation.** Pay no more than X. The X is the lowest of the three approaches' midpoints, less the integration cost, less a risk discount for the empirical-acquirer-underperformance prior. Compare to the deal price under discussion.
+
+7. **Save `analysis/11-ma-recommendation.md`** with the three valuations, the synergy table, the recommended maximum bid, and the named conditions that would change the recommendation (target restatement, customer concentration discovery, regulator concern).
+```
+
+---
+
+**What this produces:** A runnable script `analysis/11-ma-valuation.py` plus `analysis/11-ma-recommendation.md` containing the three valuations, the synergy assessment, the recommended maximum bid, and the change-our-mind conditions.
+
+**How to adapt this prompt:**
+
+- *For your own project:* Substitute your firm for Halverson where Halverson appears; the exercise structure is firm-agnostic. Halverson's named cast (Diane / Priya / Cardinal) is scaffolding — replace as needed.
+- *For ChatGPT / Gemini:* Works as-is. For ChatGPT, save the running memo to a Custom GPT instead of a Claude Project. For Gemini, paste the project's accumulated section files into the context window each session.
+- *For Claude Code:* Right tool — three-approach valuation with sensitivity tables, comparable pulls, and synergy modeling is the canonical Claude Code use case for finance.
+- *For a Claude Project:* Append to the project. The M&A valuation interacts with Chapter 4 (it's the largest line in the portfolio), Chapter 8 (it consumes debt capacity), and Chapter 9 (it may force a payout reduction). Flag all three linkages.
+
+**Connection to previous chapters:** Chapter 11 is where every prior chapter's tool gets used at once on a single decision.
+
+**Preview of next chapter:** Chapter 12 takes a step back to the firm-wide risk position and asks which operational risks the firm should retain vs. transfer.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Edith Penrose** was publishing *The Theory of the Growth of the Firm* in 1959 — the foundational case that a firm's growth is bounded by its *managerial capacity*, not by its capital, and that this constraint is what determines when an acquisition creates value and when it destroys it decades before most people had heard of M&A and the question of when a deal creates rather than destroys value. Here's a prompt to find out more — and then make it better.
+
+![Edith Penrose, c. 1960s. AI-generated portrait based on a public domain photograph (Wikimedia Commons).](images/edith-penrose.jpg)
+*Edith Penrose, c. 1960s. AI-generated portrait based on a public domain photograph.*
+
+**Run this:**
+
+```
+Who was Edith Penrose, and how does her 1959 *Theory of the Growth of the Firm* — the argument that managerial capacity, not capital, is the binding constraint on growth — connect to the chapter's analysis of when an M&A deal creates value (the acquirer can manage what it just bought) and when it destroys value (it cannot)? Keep it to three paragraphs. End with the single most surprising thing about her career or ideas.
+```
+
+→ Search **"Edith Penrose"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain *the Penrose effect* in plain language, as if you've never read theory of the firm
+- Ask it to compare Penrose's 1959 framing to a modern post-merger-integration failure
+- Add a constraint: "Answer as if you're writing the case against a strategically-attractive but managerially-overstretched acquisition"
+
+What changes? What gets better? What gets worse?
+

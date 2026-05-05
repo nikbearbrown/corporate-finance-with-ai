@@ -48,7 +48,8 @@ Inventory is cash that has already been spent but not yet converted into revenue
 
 Accounts payable is the reverse: cash that Halverson owes but has not yet paid. Suppliers have delivered materials and are waiting. For as long as they wait, Halverson retains the use of that cash. Payables are a source of financing — not because anyone designed them that way, but because the mechanics of commercial relationships create a natural float.
 
-<!-- → [IMAGE: Three-bucket diagram — AR (cash promised, not received), Inventory (cash spent, not yet revenue), AP (cash owed, not yet paid) — with arrows showing direction of cash flow for each. Intended to make the "cash in transit" concept spatial and intuitive before the formula appears.] -->
+![Three-bucket diagram showing cash in transit through accounts receivable, inventory, and accounts payable](images/03-working-capital-is-where-the-cash-lives-fig-01.png)
+*Figure 3.1 — Working capital is cash in transit*
 
 Operating working capital is the net of these three. It is the amount of capital the firm has committed to keeping its operations running — the dollar value of the gap between when cash goes out and when cash comes back in.
 
@@ -90,7 +91,8 @@ $$\text{CCC} = 60 + 60 - 35 = 85 \text{ days}$$
 
 So: from the moment Halverson pays for materials or labor to the moment the corresponding cash arrives from a customer, eighty-five days pass. That is the cycle.
 
-<!-- → [IMAGE: Horizontal timeline — "Pay for materials/labor" on the left, "Customer pays" on the right. DIO bracket (60 days) spans from payment to sale; DSO bracket (60 days) spans from sale to collection; DPO bracket (35 days) starts at payment and ends early, visually shortening the net exposure. The 85-day net CCC gap is labeled in a contrasting color. Reader should see why DPO subtracts rather than adds.] -->
+![Cash conversion cycle as a horizontal timeline showing DSO, DIO, and DPO with a net 85-day exposure](images/03-working-capital-is-where-the-cash-lives-fig-02.png)
+*Figure 3.2 — The cash conversion cycle*
 
 The formula's structure tells you something directly. DSO and DIO are additions — they make the cycle longer, because they represent cash going out before cash comes back in. DPO is a subtraction — it makes the cycle shorter, because delaying payment to suppliers postpones the outflow. That asymmetry is not a coincidence of notation. It reflects the underlying mechanics: the firm wants to collect fast, turn inventory fast, and pay slowly.
 
@@ -110,7 +112,13 @@ If procurement extends DPO by five days — by negotiating an extra five days be
 
 Ten days of combined improvement, spread across all three levers, releases $38 million. I said this at the start of the chapter and I want to make the mechanism completely clear now: the improvement is not a one-time event. It is a permanent reduction in how much capital the operating cycle consumes. Halverson does not need to find $38 million. It is already there, inside the cycle, waiting to be freed.
 
-<!-- → [TABLE: Three-lever summary — columns: Lever, Mechanism, Cash freed per day shortened, Key cost/risk. Rows: DSO (tighter credit terms / better collections / $3.8M / customer attrition), DIO (faster inventory turns / $3.8M / stockout exposure), DPO (extended supplier terms / $3.8M / supplier pricing and relationship risk). Intended to let reader see that the arithmetic is identical while the organizational and strategic challenges are completely different.] -->
+| Lever | Mechanism | Cash freed per day shortened | Key cost / risk |
+|---|---|---|---|
+| **DSO** | Tighten credit terms; improve collections | $3.8M | Customer attrition — the strict-terms version of *we're losing customers because we changed payment terms* |
+| **DIO** | Faster inventory turns; just-in-time sourcing | $3.8M | Stockout exposure — single-source supply disruption hits the line |
+| **DPO** | Extend supplier payment terms; renegotiate top-10 contracts | $3.8M | Supplier pricing increases; weakened relationships when supply tightens |
+
+*The arithmetic is identical across levers. The organizational and strategic challenges are not.*
 
 The arithmetic is identical across all three levers. The strategy is completely different, and the costs of improvement are different in ways that matter.
 
@@ -146,7 +154,25 @@ Or it can mean Halverson is recognizing revenue aggressively at quarter-end, boo
 
 The way to tell these apart is the AR aging schedule: how much of the balance is 0–30 days old, 31–60 days, 61–90 days, over 90? A healthy book concentrates in the early buckets. A deteriorating book has a growing tail past 60 days — customers who are paying late or, eventually, not paying at all. The aging schedule is diagnostic in a way the aggregate DSO cannot be.
 
-<!-- → [TABLE: AR aging schedule example for Halverson — columns: Aging bucket (0–30, 31–60, 61–90, 90+), Balance ($M), % of total AR, Healthy benchmark %. Two scenarios side by side: healthy book (tail small) vs. deteriorating book (60+ bucket growing). Reader should be able to diagnose a collections problem from the table alone.] -->
+**Healthy book**
+
+| Aging bucket | Balance ($M) | % of total AR | Healthy benchmark % |
+|---|---|---|---|
+| 0–30 days | 76 | 76% | 70–80% |
+| 31–60 days | 18 | 18% | 15–20% |
+| 61–90 days | 4 | 4% | 3–5% |
+| 90+ days | 2 | 2% | < 3% |
+
+**Deteriorating book**
+
+| Aging bucket | Balance ($M) | % of total AR | Healthy benchmark % |
+|---|---|---|---|
+| 0–30 days | 52 | 52% | 70–80% |
+| 31–60 days | 22 | 22% | 15–20% |
+| 61–90 days | **18** | **18%** | 3–5% |
+| 90+ days | **8** | **8%** | < 3% |
+
+*The deteriorating book has the same total AR but the bulk has migrated past 60 days. The collections problem is diagnosable from the table alone.*
 
 The same three-way ambiguity exists for DIO. Inventory growth can be rational (building stock ahead of a major product launch), operational (slow-moving SKUs that should have been written down quarters ago), or strategic (deliberately building buffer against supply chain risk). The aggregate DIO does not tell you which. You need to look at inventory by item, by age, by turnover rate.
 
@@ -166,7 +192,8 @@ DIO is owned by operations and supply chain. Reducing inventory means accepting 
 
 DPO is owned by procurement. Extending payable days shifts a cash flow burden onto suppliers. For large firms dealing with smaller suppliers who have no alternatives, this can cross from negotiation into something more coercive. Several jurisdictions now regulate maximum payment terms precisely because of this dynamic. A CFO managing DPO aggressively needs to be aware of both the financial arithmetic and the relational and ethical consequences of using purchasing leverage this way.
 
-<!-- → [IMAGE: Org chart showing CCC components mapped to business functions — DSO to Sales + Finance, DIO to Operations + Supply Chain, DPO to Procurement. Arrows indicate cross-functional tension points. Intended to make the organizational complexity of CCC improvement visible alongside the formula's apparent simplicity.] -->
+![Org-chart diagram mapping each CCC component to the business functions that own it, with cross-functional tension points](images/03-working-capital-is-where-the-cash-lives-fig-03.png)
+*Figure 3.3 — CCC as a cross-functional negotiation*
 
 The cash conversion cycle is a number. The work of improving it is organizational, political, and — in the case of DPO — ethical. The formula is clean. The reality is not.
 
@@ -253,3 +280,77 @@ Chapter 4 takes the cash freed by working capital management — along with capi
 
 **10.** The chapter's "Still Puzzling" section admits there is no clean rule for where aggressive DPO management becomes supplier coercion. Using only the frameworks introduced in this chapter (and any external knowledge you bring), propose a practical decision rule a CFO could apply when evaluating whether to extend payable terms with a specific supplier. The rule should be operationalizable — not just "exercise judgment" — and should account for both the financial and the ethical dimensions the chapter names. Then identify the hardest case your rule fails to resolve cleanly.
 *Tests: extending the chapter's admitted uncertainty into a constructive framework; finding the boundary conditions of your own answer.*
+
+---
+
+###  LLM Exercise — Chapter 3: Working Capital Is Where the Cash Lives
+
+**Project:** Halverson's Board Memo, Built Across the Course
+**What you're building this chapter:** The Working-Capital Reality section of the memo: a cash-conversion-cycle analysis with the binding line item identified and an improvement plan that names dollar impact and an accountable owner.
+**Tool:** Claude Project
+
+---
+
+**The Prompt:**
+
+```
+I'm working on Halverson's Board Memo. The inside-view read is in `02-inside-read.md`.
+
+Chapter 3 taught:
+- **The cash conversion cycle**: $\text{CCC} = \text{DSO} + \text{DIO} - \text{DPO}$
+- **The trade-off between liquidity and yield**: a firm holding more working capital than it needs is forgoing return on that capital
+- **The structural reasons a profitable firm runs out of cash**: receivables stretch, inventory builds, payables compress
+
+Produce `03-working-capital.md` containing:
+
+1. **The cash-conversion-cycle calculation.** Pull DSO, DIO, DPO from the filings (or from your firm's internal data). Compute CCC. Compare to the prior year and to two named industry peers. Show the arithmetic.
+
+2. **The binding line item.** Of DSO / DIO / DPO, which one is dragging the cycle most? Name it specifically. Do not say "we should improve all three" — name the one that is binding and explain why.
+
+3. **The dollar impact of a one-day improvement on the binding line.** If we cut DSO by one day, that releases (Daily revenue) × 1 day in cash. If we cut DIO by one day, that releases (Daily COGS) × 1 day. Compute the dollar number for *your* firm. State the assumption (e.g., "annual revenue $1.8B implies daily revenue $4.9M, so one DSO day = $4.9M of cash released").
+
+4. **The improvement plan.** Three-to-five specific moves: change credit terms with the top-5 customers; tighten inventory safety-stock policy; renegotiate top-10 supplier payment terms. For each, specify the named operational owner (CFO, COO, controller, head of supply chain) and the expected dollar impact.
+
+5. **The risk side.** One paragraph. What would go wrong if you executed this plan? Customer relationships, supplier reliability, stockout risk on the inventory side. The CFO who proposes a working-capital improvement plan without naming the operational risk is *moving cash, not creating it*.
+```
+
+---
+
+**What this produces:** A markdown document `03-working-capital.md` containing the CCC calculation, the binding line item, the dollar impact of a one-day improvement, the named improvement plan, and the operational-risk paragraph.
+
+**How to adapt this prompt:**
+
+- *For your own project:* Substitute your firm for Halverson where Halverson appears; the exercise structure is firm-agnostic. Halverson's named cast (Diane / Priya / Cardinal) is scaffolding — replace as needed.
+- *For ChatGPT / Gemini:* Works as-is. For ChatGPT, save the running memo to a Custom GPT instead of a Claude Project. For Gemini, paste the project's accumulated section files into the context window each session.
+- *For Claude Code:* Optional — Claude Code can scaffold `analysis/03-ccc.py` that pulls DSO/DIO/DPO from a CSV or directly from EDGAR and computes the year-over-year deltas.
+- *For a Claude Project:* Append to the project. The cash released here may fund Plant 4 (Ch 4) without new debt — flag the linkage.
+
+**Connection to previous chapters:** Chapter 2 read the firm; Chapter 3 finds the cash hiding inside it.
+
+**Preview of next chapter:** Chapter 4 takes the firm to capital budgeting — building the NPV-ranked portfolio of projects competing for the freed-up working capital.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **John Hicks** was publishing *Value and Capital* in 1939 — including the *liquidity preference* framework that explains why firms hold cash even when cash earns less than other assets decades before most people had heard of working capital management and the structural reasons firms hold the liquidity they do. Here's a prompt to find out more — and then make it better.
+
+![John Hicks, c. 1940s. AI-generated portrait based on a public domain photograph (Wikimedia Commons).](images/john-hicks.jpg)
+*John Hicks, c. 1940s. AI-generated portrait based on a public domain photograph.*
+
+**Run this:**
+
+```
+Who was John Hicks, and how does his concept of *liquidity preference* — the framework explaining why economic actors hold low-yielding cash even when alternatives exist — connect to the chapter's treatment of working capital and the trade-offs in the cash conversion cycle? Keep it to three paragraphs. End with the single most surprising thing about his career or ideas.
+```
+
+→ Search **"John Hicks economist"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain *liquidity preference* in plain language, as if you've never seen Keynes
+- Ask it to compare Hicks's framework to the modern question of why a profitable firm chooses to carry $5B in cash on its balance sheet
+- Add a constraint: "Answer as if you're writing the rationale for a target cash balance in a treasury policy"
+
+What changes? What gets better? What gets worse?
+

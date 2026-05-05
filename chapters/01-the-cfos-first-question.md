@@ -28,7 +28,13 @@ I want to understand *why* none of that tells her what to write, because this is
 
 The question "should we fund Plant 4 with debt or equity?" sounds like a single question. It isn't. It's doing five different jobs at once, and the job that sounds most obvious — which financing instrument to use — is actually the least interesting of the five.
 
-<!-- → [TABLE: five-job breakdown of "should we fund Plant 4 with debt or equity?" — columns: job name, the real question it's asking, what data answers it, who inside Halverson owns that data — student should see that each job requires a different source and a different kind of analysis] -->
+| Job | The real question it asks | What data answers it | Owner of that data inside Halverson |
+|---|---|---|---|
+| **Capital allocation** | Does Plant 4 clear our hurdle rate vs. competing uses of the cash? | Project IRR vs. firm WACC; portfolio of competing projects | FP&A (Priya) |
+| **Capital structure** | What does our current debt-to-capital ratio allow us to do without breaking the rating? | Existing leverage; rating-agency thresholds; covenant cushion | Treasury |
+| **Cost of capital** | What rate should we discount the project at — firm WACC or project-specific? | Project risk profile relative to firm; comparable-firm betas | FP&A + Treasury |
+| **Distribution / payout** | If we lever up for Plant 4, what does that constrain about the buyback program? | Forward cash projections; current authorization | CFO directly |
+| **Operational** | What does the engineering / operations team actually believe about Plant 4's economics? | Construction timeline, ramp curve, labor and supply chain risk | Plant 4 program manager |
 
 There's the cost job: debt costs interest, equity costs dilution and expected future returns, so you'd prefer the cheaper one, all else equal. But all else is never equal. The cost depends on Halverson's existing capital structure, the current tax rate, what the credit market is pricing right now, how the equity market feels about Halverson specifically, and how the board feels about issuing shares this quarter. "Which costs less" is not a number you look up. It's a calculation that requires a specific firm, a specific moment, and specific market conditions.
 
@@ -88,7 +94,11 @@ The second beat is calculating transparently. No black-box outputs. Every number
 
 The third beat is the sanity check. If the WACC comes out at 4%, Maya knows that's wrong before she checks the math, because Halverson's bonds currently trade at a yield above that, and equity holders expect more than the cost of debt. The sanity check is cheap insurance against a catastrophic error. It costs almost nothing and catches the mistakes that matter most — not arithmetic errors but structural errors in the setup.
 
-<!-- → [TABLE: three-beat method applied to Maya's memo — columns: beat, the question it answers, what failure looks like at Halverson, what success looks like — student should see each beat as a distinct failure mode to guard against, not just steps in a sequence] -->
+| Beat | The question it answers | What failure looks like at Halverson | What success looks like |
+|---|---|---|---|
+| **Idea** | What is the question I have been asked? | Maya answers "should we fund Plant 4?" with a generic capital-budgeting analysis when Diane needed a debt-vs-equity recommendation | Maya restates the brief in writing back to Diane: *"You're asking whether to fund the $50M expansion with debt or equity, given the Cardinal advance, by Friday."* |
+| **Execute** | What is the load-bearing analysis for that question? | Maya runs three analyses and chooses the one that confirms the answer the team is leaning toward | Maya names *one* analysis whose result, by itself, would change the recommendation — and runs it carefully |
+| **Verify** | What would I want in writing if my recommendation turned out to be wrong? | The memo cites the FP&A WACC of 8% without naming the inputs or the date of last update | The memo carries the WACC inputs, the assumption sensitivities, and a *what-would-change-our-mind* sentence the audit committee can audit |
 
 These three beats are not a method for any particular financing decision. They are the discipline of someone whose recommendation will be taken to the board. The board will ask questions. The questions will be pointed. The answers need to be true.
 
@@ -163,3 +173,76 @@ That is the CFO's first question. Not which instrument. Not what the model says.
 ---
 
 *Tags: capital structure, inside-the-firm, Modigliani-Miller, trade-off theory, three-beat method, cost of capital, signaling, financial distress*
+
+---
+
+###  LLM Exercise — Chapter 1: The CFO's First Question
+
+**Project:** Halverson's Board Memo, Built Across the Course
+**What you're building this chapter:** The firm you'll analyze across the next fourteen chapters, Maya's *third Tuesday* version of the specification problem, and a decision frame that names the question precisely.
+**Tool:** Claude Project
+
+---
+
+**The Prompt:**
+
+```
+I'm starting a project that will run across the next fourteen chapters of *Corporate Finance with AI* by Nik Bear Brown. Across the chapters I will adopt Maya Chen's role at Halverson Industries and build one complete CFO board memo, section by section.
+
+Either I'll use Halverson as the running case (Diane is CFO, the firm is mid-cap industrial, the live decisions are the Plant 4 expansion, the Cardinal Flow Systems acquisition, the FY26 capital plan, and the operational-risk position) or I'll substitute my own employer / a public mid-cap I care about. Paste the firm choice below; if I haven't, ask.
+
+Help me set up Chapter 1's deliverable. Chapter 1 introduces the **specification gap** — the difference between the question Maya was asked and the question her education prepared her for — and the **inside-vs-outside** split.
+
+Produce four things, in order:
+
+1. **The firm, named precisely.** One paragraph. Industry, size (revenue, EBITDA, market cap), capital structure at a glance, the live decision the CFO is wrestling with this quarter. Use Halverson defaults if I gave you no other firm.
+
+2. **The third-Tuesday decision.** One paragraph. The specific decision you'll be analyzing across the book — written as Diane (or your CFO) would phrase it in an email to Maya. Bad: "Look at our capital structure." Good: "By Friday I need a one-page case for whether we fund Plant 4's $50M expansion with new debt, an equity issuance, or a mix — and what the implications are for the Cardinal acquisition we're advancing in parallel."
+
+3. **The four interdependent decisions Chapter 15 will integrate.** A short bullet list — capital allocation, capital structure, payout policy, risk position — each instantiated for *your* firm in one sentence. These four decisions are what the capstone holds at once.
+
+4. **The "what would change my mind" sentence.** One sentence. The specific evidence that would flip the recommendation. The verify-step's anchor for the entire memo.
+
+Format the output as a markdown document `01-decision-frame.md`. Be honest about uncertainty in the firm's numbers — pick figures you'd defend in a meeting, not figures that sound impressive.
+```
+
+---
+
+**What this produces:** A markdown document `01-decision-frame.md` containing the firm definition, the third-Tuesday decision, the four interdependent decisions, and the what-would-change-my-mind sentence. This document is the seed for every subsequent chapter's exercise.
+
+**How to adapt this prompt:**
+
+- *For your own project:* Substitute your firm for Halverson where Halverson appears; the exercise structure is firm-agnostic. Halverson's named cast (Diane / Priya / Cardinal) is scaffolding — replace as needed.
+- *For ChatGPT / Gemini:* Works as-is. For ChatGPT, save the running memo to a Custom GPT instead of a Claude Project. For Gemini, paste the project's accumulated section files into the context window each session.
+- *For Claude Code:* Not the right tool yet — pure markdown drafting.
+- *For a Claude Project:* Create a Claude Project named *Halverson Memo — [your firm]*. Put in the system prompt: *every output is a section that will fit into a final 6–10 page integrated CFO board memo at Chapter 15*. Pin the four interdependent decisions list as a project file.
+
+**Connection to previous chapters:** First chapter — no prior exercise to build on. The firm chosen here governs every subsequent exercise.
+
+**Preview of next chapter:** Chapter 2 takes the same firm and produces the *reading-the-firm-from-inside* section — the manager-eye financial-statement read that an outside analyst cannot do.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Donaldson Brown** was designing the financial control system at DuPont in the 1910s and at General Motors in the 1920s — including the *DuPont identity* every CFO still asks first about return on equity decades before most people had heard of the CFO's first question and the financial-control framing that produces it. Here's a prompt to find out more — and then make it better.
+
+![Donaldson Brown, c. 1920s. AI-generated portrait based on a public domain photograph (Wikimedia Commons).](images/donaldson-brown.jpg)
+*Donaldson Brown, c. 1920s. AI-generated portrait based on a public domain photograph.*
+
+**Run this:**
+
+```
+Who was Donaldson Brown, and how does his work designing the DuPont financial control system — and the *DuPont decomposition* of return on equity — connect to the chapter's argument that a CFO's first question is not *what's the number?* but *what does the number require to mean what it claims to mean?* Keep it to three paragraphs. End with the single most surprising thing about his career or ideas.
+```
+
+→ Search **"Donaldson Brown"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain the *DuPont identity* in plain language, as if you've never seen ROE decomposed
+- Ask it to compare Brown's 1920s GM control system to a modern CFO's monthly review
+- Add a constraint: "Answer as if you're writing the rationale for the CFO's first three questions in any new fiscal year"
+
+What changes? What gets better? What gets worse?
+

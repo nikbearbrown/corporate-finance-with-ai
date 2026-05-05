@@ -30,7 +30,11 @@ The second is information. Managers know things about the firm's future that out
 
 The third is clientele effects. Different investors want different things from their holdings. Pension funds and retirees running income portfolios prefer regular dividends — predictable, automatic, requiring no trading decision. Growth-oriented institutions prefer capital appreciation and would rather the firm retain or repurchase than distribute cash they will immediately reinvest. A firm that has paid a regular dividend for decades has self-selected a shareholder base: its investors are there, in part, because they want the dividend. Changing the policy abruptly evicts those investors without warning — they sell, often at depressed prices, and the selling itself moves the stock.
 
-<!-- → [TABLE: Three-friction summary — rows: Taxes, Information, Clientele effects; columns: What the friction is, How it favors dividends, How it favors buybacks, Who it affects most. Intended to let the reader see all three frictions side by side before the chapter treats each in depth.] -->
+| Friction | What it is | How it favors dividends | How it favors buybacks | Who it affects most |
+|---|---|---|---|---|
+| **Taxes** | Personal-tax wedge between dividend income and capital gains | Tax-exempt holders (pension funds, endowments) are indifferent or prefer dividends for predictable distributions | Taxable holders prefer buybacks because deferral lowers effective tax rate | Mix of taxable and tax-exempt shareholders |
+| **Information** | Management knows more about firm value than the market | Dividend smoothing creates a credible commitment about future cash flow | A buyback announcement is a managerial claim that the stock is undervalued | Firms whose stock price is most likely to be misvalued |
+| **Clientele effects** | Different shareholder types prefer different distribution patterns | Income-seeking retail and pension investors prefer regular dividends | Growth-oriented institutional investors prefer buybacks (deferred tax + signaling) | Firms whose investor base is more homogeneous along income/growth dimension |
 
 These three frictions apply to almost every publicly traded firm's payout decision. They are the reason the choice between dividends and buybacks is substantive rather than cosmetic.
 
@@ -100,7 +104,11 @@ The second decision is in what form: dividends commit, buybacks flex. Dividends 
 
 The third decision is in what pattern: regular quarterly dividends build a committed investor base and signal stable long-run earnings. Variable buybacks signal capital discipline without a recurring obligation. Special dividends signal one-time excess without creating a future expectation. Each pattern attracts different shareholders and creates different interpretations of what comes next.
 
-<!-- → [TABLE: Payout pattern comparison — rows: Regular quarterly dividend, Variable buyback program, Special dividend; columns: Commitment level, Tax efficiency, Signal content, Investor base it attracts, Flexibility to pause. Intended to let the reader compare all three patterns across all five dimensions simultaneously.] -->
+| Pattern | Commitment level | Tax efficiency | Signal content | Investor base it attracts | Flexibility to pause |
+|---|---|---|---|---|---|
+| **Regular quarterly dividend** | High — implicit contract that cuts are punished | Lower (taxed as income for taxable holders) | Strong, durable; cuts carry stigma | Income-seeking retail, dividend-focused funds | Low — pause is read as crisis |
+| **Variable buyback program** | Low — discretionary at management's call | Higher (deferred capital-gains taxation) | Confidence in current valuation; can be paused without stigma | Growth and value-tilted institutional | High — easily paused |
+| **Special dividend** | Single-event — no implicit commitment | Lower | Surprise distribution of exceptional cash | Mixed; reads as one-time | Trivial — by definition single-event |
 
 These three decisions interact. A firm that sets a high payout ratio through buybacks retains more flexibility than one that sets the same ratio through dividends. A firm that pays a low dividend but executes aggressive buybacks sends a different signal than one that returns the same total cash entirely through dividends. Getting the combination right requires knowing your investor base, your earnings stability, and what you want to say about the firm's future.
 
@@ -118,7 +126,13 @@ On the remaining balance sheet cash: hold it. Not every dollar of excess needs t
 
 What Maya explicitly recommends against: a special dividend, which signals nothing useful about future earnings capacity and doesn't build shareholder loyalty; a debt-funded buyback, which exchanges financial flexibility for EPS cosmetics; and a dividend increase larger than the sustainable earnings base can support.
 
-<!-- → [TABLE: Maya's recommendation summary — rows: Dividends, Buybacks, Remaining cash, Special dividend (rejected), Debt-funded buyback (rejected); columns: Action recommended, Rationale, What it signals, What it avoids. A at-a-glance view of the full recommendation and the reasoning behind each element, including the explicit rejections.] -->
+| Action | Action recommended | Rationale | What it signals | What it avoids |
+|---|---|---|---|---|
+| **Dividends** | Maintain $0.32/share quarterly; raise to $0.36 in Q1 2027 | Implicit-contract preservation; modest growth signals confidence | Continued cash-flow stability | The asymmetric punishment of a dividend cut |
+| **Buybacks** | Authorize $200M program for 2027; deploy opportunistically | Tax efficiency; flexibility against Cardinal cash needs | Management's view that the stock is reasonably valued | Locking in distribution at a level that constrains the Cardinal financing |
+| **Remaining cash** | Apply to debt paydown and Plant 4 funding | Capital structure work in Ch 8; Plant 4 portfolio decision in Ch 4 | Disciplined deployment | A balance-sheet build with no clear use |
+| **Special dividend (rejected)** | Not recommended | One-time spike rewards short-term holders without changing the long-term commitment | (Not signaled) | Disrupting the dividend narrative |
+| **Debt-funded buyback (rejected)** | Not recommended | Cardinal will consume the debt capacity; double-deploying would strain target leverage | (Not signaled) | Capital-structure incoherence |
 
 ---
 
@@ -203,3 +217,83 @@ Chapter 10 takes the individual decision frameworks from Chapters 3 through 9 an
 
 **10.** The "Still Puzzling" section admits there is no clean account of what a value-maximizing buyback timing policy looks like for a firm without a reliable estimate of its own intrinsic value. Design a practical buyback execution policy for Halverson that addresses this problem — specific enough to implement, not just "buy when cheap." The policy should incorporate whatever observable signals are available to management, account for the behavioral tendencies documented in the chapter, and include explicit rules for when to pause or accelerate. Then identify the hardest case your policy fails to handle cleanly.
 *Tests: converting an admitted uncertainty into a constructive framework; finding the boundary condition of your own answer.*
+
+---
+
+###  LLM Exercise — Chapter 9: Returning Capital
+
+**Project:** Halverson's Board Memo, Built Across the Course
+**What you're building this chapter:** The Payout Policy section of the memo: a recommended FY26 payout policy (dividends + buybacks), sized against forward cash flow, and defended against the alternative dispositions of the same cash.
+**Tool:** Claude Project
+
+---
+
+**The Prompt:**
+
+```
+I'm working on Halverson's Board Memo. The target capital structure is in `08-target-structure.md`.
+
+Chapter 9 taught:
+- **Dividend smoothing** (Lintner): managers smooth dividends because cuts are punished asymmetrically
+- **Buybacks as flexible payout**: faster, no implicit commitment, signaling content
+- **The tax wedge**: dividends taxed as ordinary income (in some regimes) vs. capital gains for buybacks
+- **Signaling content**: a buyback announcement is a managerial claim that the stock is undervalued
+
+Produce `09-payout-policy.md` containing:
+
+1. **The FY26 forward cash forecast.** Pull from the firm's most recent guidance or build from the trend: operating cash flow, capex, working-capital change. The residual is *cash available for return to shareholders + investment opportunities + balance sheet*.
+
+2. **The capital-allocation pie for FY26.** Of the cash available, how much goes to: investment (Chapter 4 portfolio), debt paydown / capacity (Chapter 8), payout, balance-sheet build? State each as a dollar amount and as a fraction of operating cash flow.
+
+3. **The payout split.** Of the payout dollars, how much is dividend, how much is buyback? Defend with reference to:
+   - Current dividend policy and shareholders' implicit-contract expectations
+   - Buyback authorization remaining (or to be requested at the board meeting)
+   - Stock price relative to your management view of intrinsic value (a buyback is more attractive when the stock is cheaper)
+   - Tax considerations for the marginal shareholder
+   - Signaling — what a 10% increase in the dividend says vs. a $200M buyback authorization
+
+4. **The recommended FY26 policy.** Specific numbers: dividend per share, total buyback authorization, expected timing. State the policy in the language a press release would use.
+
+5. **The reversal trigger.** What would make us reduce or pause this policy? Specific named conditions — typically a leverage breach, a customer-concentration shock, or a downgrade. The reversal trigger is what makes the policy a *recommendation* rather than a *forecast*.
+```
+
+---
+
+**What this produces:** A markdown document `09-payout-policy.md` containing the FY26 cash forecast, the capital-allocation pie, the dividend/buyback split, the recommended policy, and the reversal trigger.
+
+**How to adapt this prompt:**
+
+- *For your own project:* Substitute your firm for Halverson where Halverson appears; the exercise structure is firm-agnostic. Halverson's named cast (Diane / Priya / Cardinal) is scaffolding — replace as needed.
+- *For ChatGPT / Gemini:* Works as-is. For ChatGPT, save the running memo to a Custom GPT instead of a Claude Project. For Gemini, paste the project's accumulated section files into the context window each session.
+- *For Claude Code:* Optional — `analysis/09-payout.py` can model alternative payout splits against forward cash projections and report the residual balance-sheet impact under each.
+- *For a Claude Project:* Append to the project. Payout is the third of the four interdependent decisions in Chapter 15.
+
+**Connection to previous chapters:** Chapter 8 set the target capital structure; Chapter 9 splits the capital that's coming back out of the firm between dividends and buybacks.
+
+**Preview of next chapter:** Chapter 10 turns to the other direction — when the firm needs to *raise* capital — and asks how to do it efficiently.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Gardiner C. Means** was documenting in the 1930s — at the same time as his co-author Berle — the empirical patterns of corporate dividend policy and the way managers use distributions as signals to a market they cannot fully control decades before most people had heard of returning capital through dividends and buybacks, and the choice between them. Here's a prompt to find out more — and then make it better.
+
+![Gardiner C. Means, c. 1940s. AI-generated portrait based on a public domain photograph (Wikimedia Commons).](images/gardiner-c-means.jpg)
+*Gardiner C. Means, c. 1940s. AI-generated portrait based on a public domain photograph.*
+
+**Run this:**
+
+```
+Who was Gardiner C. Means, and how does his empirical work on corporate dividend policy — and the related concept of *administered prices* in modern firms — connect to the chapter's argument that the choice between dividends and buybacks is a signaling decision as much as a tax decision? Keep it to three paragraphs. End with the single most surprising thing about his career or ideas.
+```
+
+→ Search **"Gardiner Means"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain *administered prices* in plain language, as if you've only ever read about competitive markets
+- Ask it to compare Means's 1930s observation of corporate dividend smoothing to a modern buyback program
+- Add a constraint: "Answer as if you're writing the case for a buyback over a dividend in a board-room recommendation"
+
+What changes? What gets better? What gets worse?
+

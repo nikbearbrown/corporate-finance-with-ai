@@ -14,7 +14,8 @@ What makes it hard — and what makes it interesting — is that it has to hold 
 
 The frameworks have been covered. The capstone is the demonstration that they fit together — and that the tensions between them have been named rather than papered over.
 
-<!-- → [IMAGE: Four-quadrant diagram — Capital Allocation, Capital Structure, Payout Policy, Risk Position — with bidirectional arrows between all four quadrants, labeled with the specific constraint each decision places on the others (e.g., "allocation consumes debt capacity," "structure limits returns," "payout affects liquidity buffer," "risk position sets forecast credibility"). Intended to make the interdependence structural before the chapter treats each domain individually.] -->
+![Four-quadrant diagram of the four interdependent CFO decisions — capital allocation, capital structure, payout policy, risk position — with bidirectional arrows showing how each constrains the others](images/15-the-capstone-an-integrated-cfo-recommendation-fig-01.png)
+*Figure 15.1 — The four interdependent CFO decisions*
 
 ---
 
@@ -28,7 +29,12 @@ The memo states this plainly, and then makes the next decision explicit: the Mex
 
 There is a version of the memo that presents the Mexico deferral as a missed opportunity, or hedges it with language about "monitoring the situation." That version is not a recommendation. It is a refusal to commit to a position that can be evaluated. The memo Maya is drafting says: Mexico remains deferred, and here is the specific data trigger that would reopen it. That is what a commitment looks like in writing.
 
-<!-- → [TABLE: Capital deployment summary — rows: Plant 4, Cardinal Acquisition, Working Capital Program; columns: Capital deployed, Projected incremental EBITDA, Required EBITDA at 9% hurdle, Status vs. hurdle. A final row shows the portfolio total. Intended to let the reader verify at a glance whether the portfolio clears its cost of capital, and by how much.] -->
+| Investment | Capital deployed | Projected incremental EBITDA | Required EBITDA at 9% hurdle | Status vs. hurdle |
+|---|---|---|---|---|
+| **Plant 4** | $50M | $20–25M | $4.5M | **Clears** with substantial margin |
+| **Cardinal Acquisition** | $700M | $50–60M (synergized) | $63M | **Borderline** — clears at the upper end of synergy realization, fails at the lower end |
+| **Working Capital Program** | ($30M released) | $2.7M (interest savings on the freed capital) | n/a (capital-released, not capital-deployed) | **Net positive** |
+| **Portfolio total** | **$720M (net)** | **$70–85M** | **~$65M** | **Clears in expectation; vulnerable on Cardinal alone** |
 
 ---
 
@@ -58,7 +64,14 @@ If that signal is wrong, the decision trigger is clear: if Q1 2027 free cash flo
 
 That sentence — the one naming the specific condition under which the recommendation changes — is the most important sentence in the payout section. A memo without decision triggers is not a defensible recommendation. It is a forecast disguised as a recommendation, and forecasts are easy to make and impossible to be held accountable for. Decision triggers are uncomfortable to write because they commit the writer to being wrong in a specific, observable way. That discomfort is the point. It is what separates analysis from judgment, and judgment from accountability.
 
-<!-- → [TABLE: Payout recommendation summary — rows: Dividend (current, proposed, decision trigger), Buyback (remaining authorization, new 2027 program), Total capital return (2026 actual, 2027 projected); columns: Amount, Rationale, Condition that changes it. The decision trigger column should be explicit for each row, including "N/A" where no trigger applies. Intended to make the trigger framework visible as a structure, not just a sentence in the dividend discussion.] -->
+| Element | Amount | Rationale | Condition that changes it |
+|---|---|---|---|
+| **Dividend (current)** | $0.32 / share quarterly | Continuation of the current implicit contract | n/a |
+| **Dividend (proposed)** | $0.36 / share quarterly beginning Q1 2027 | Modest growth signals confidence and tracks the EBITDA growth from Cardinal | If FY26 free cash flow falls below $400M, hold dividend flat at $0.32 |
+| **Buyback (remaining authorization)** | $80M | Existing program; deploy opportunistically into FY26 weakness | n/a |
+| **Buyback (new 2027 program)** | $200M | Tax-efficient capital return; flexibility against Cardinal cash needs | If leverage exceeds 3.5× EBITDA at any quarter-end, suspend buybacks |
+| **Total capital return — 2026 actual** | $245M | Within target return band | n/a |
+| **Total capital return — 2027 projected** | $310M | Within target return band assuming dividend raise + new buyback authorization | The leverage trigger above; the dividend trigger above |
 
 ---
 
@@ -193,3 +206,88 @@ That is probably the right way to set such a threshold. But I would feel better 
 
 **10.** The "Still Puzzling" section admits there is no clean method for deriving decision trigger thresholds — the $65 million free cash flow floor is a judgment call, not a formula. Design a practical method for setting trigger thresholds that is more rigorous than pure judgment but honest about the limits of what can be derived analytically. The method should be specific enough to apply to at least three of the decision triggers implied by this chapter (dividend deferral, M&A gate, debt capacity deployment), should account for normal operating variance vs. genuine signal, and should be explainable to the audit committee chair in two minutes. Then identify the condition under which your method produces a threshold that is worse than the CFO's judgment call.
 *Tests: converting the chapter's admitted uncertainty into a constructive framework; finding the boundary condition of your own solution — consistent with the book's capstone challenge format.*
+
+---
+
+###  LLM Exercise — Chapter 15: The Capstone
+
+**Project:** Halverson's Board Memo, Built Across the Course
+**What you're building this chapter:** The complete 6–10 page integrated CFO board memo, holding all four interdependent decisions (capital allocation, capital structure, payout policy, risk position) at once, with named decision triggers, an audit record, and a named accountable owner.
+**Tool:** Cowork
+
+---
+
+**The Prompt:**
+
+```
+I'm working on Halverson's Board Memo. Every prior section is in the project: `01-decision-frame.md` through `14-debiasing.md`, plus the analysis files in `analysis/`.
+
+Chapter 15 taught:
+- **The four interdependent decisions**: capital allocation, capital structure, payout policy, risk position — *not sequential, simultaneous*
+- **The board memo as the integrated artifact**: every prior chapter's analysis fits into a 6–10 page document the audit-committee chair will read line by line
+- **Decision triggers**: a memo without named conditions for reversal is a forecast, not a recommendation
+- **Audit record + named accountable owner**: the recommendation is owned by a person and supported by traceable analysis
+
+In **Cowork**, assemble `report/15-board-memo.md`:
+
+**Structure** (6–10 pages):
+
+1. **Executive summary** (½ page). The four headline decisions, each in one sentence with the magnitude. The single largest risk to the integrated package. The what-would-change-our-mind sentence from `01-decision-frame.md`, refined.
+
+2. **The four interdependent decisions** (4–6 pages, distributed):
+   - **Capital Allocation** (1 page) — adapted from `analysis/04-portfolio-ranked.md` and `analysis/06-real-options.md` and `analysis/11-ma-recommendation.md`. The portfolio recommendation, the binding constraint, the largest single decision (M&A) embedded.
+   - **Capital Structure** (1 page) — adapted from `08-target-structure.md` and `10-issuance-plan.md`. The target debt-to-capital, the path to it, the FY26 issuance plan.
+   - **Payout Policy** (½–1 page) — adapted from `09-payout-policy.md`. FY26 dividend, FY26 buyback authorization, the reversal trigger.
+   - **Risk Position** (1 page) — adapted from `12-risk-register.md` and `analysis/13-international.md`. The top retained risks, the hedging program, the named owners.
+
+3. **Tensions named** (1 page). The three places where the four decisions pull against each other: the Cardinal acquisition consumes debt capacity that constrains the buyback; the FY26 capex peak conflicts with the working-capital improvement timing; the FX hedge cost competes with the Plant 4 IRR. Each tension named, each handled.
+
+4. **Decision triggers** (½ page). For each of the four decisions, the named conditions that would force a reversal. *Example: "If Cardinal's top customer announces dual-sourcing within 90 days, we pause the buyback and reassess the synergy plan."* Five to seven specific triggers total.
+
+5. **The audit record** (½ page). For each decision, the analysis files that support it. The audit-committee chair could pull `analysis/05-wacc.md` and verify the WACC of 8.4% if she wanted to.
+
+6. **Named accountable owner.** *This recommendation is owned by [CFO name], dated [date]. The audit trail is at [path]. The recommendation will be reviewed against the named triggers monthly and against the integrated package at the next board meeting.*
+
+**The Q&A audit.** After Cowork generates the draft, run a critique pass: the audit-committee chair reads this and asks the three hardest questions she would ask. Rewrite any section that doesn't already answer those questions.
+```
+
+---
+
+**What this produces:** A complete 6–10 page integrated CFO board memo as `report/15-board-memo.md`, plus a Q&A audit, plus a named-owner block. This is the deliverable the entire course was building toward.
+
+**How to adapt this prompt:**
+
+- *For your own project:* Substitute your firm for Halverson where Halverson appears; the exercise structure is firm-agnostic. Halverson's named cast (Diane / Priya / Cardinal) is scaffolding — replace as needed.
+- *For ChatGPT / Gemini:* Works as-is. For ChatGPT, save the running memo to a Custom GPT instead of a Claude Project. For Gemini, paste the project's accumulated section files into the context window each session.
+- *For Claude Code:* Optional — Claude Code can render the memo to PDF via Pandoc as `report/15-board-memo.pdf` for board distribution.
+- *For a Claude Project:* Cowork is the right tool — it can read every chapter's output file, compose the integrated memo, and run the Q&A critique pass in one session. The accumulated Project context is the input.
+
+**Connection to previous chapters:** Every prior chapter contributed one section; Chapter 15 assembles them into the artifact the entire course was building toward.
+
+**Preview of next chapter:** This is the final chapter. Your deliverable is now a complete board memo that the audit committee can read in fifteen minutes and either agree with or disagree with on specific named points — the closure of the specification problem introduced in Chapter 1.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Joseph Schumpeter** was publishing *The Theory of Economic Development* in 1911 — the foundational integrated account of how capital decisions, entrepreneurial activity, and *creative destruction* interact at the level of a firm and an economy decades before most people had heard of an integrated CFO recommendation that holds every prior chapter's tools at once. Here's a prompt to find out more — and then make it better.
+
+![Joseph Schumpeter, c. 1940s. AI-generated portrait based on a public domain photograph (Wikimedia Commons).](images/joseph-schumpeter.jpg)
+*Joseph Schumpeter, c. 1940s. AI-generated portrait based on a public domain photograph.*
+
+**Run this:**
+
+```
+Who was Joseph Schumpeter, and how does his integrated theory — *creative destruction*, the entrepreneur as the agent of capital reallocation, the firm as the unit of decision under genuine uncertainty — connect to the chapter's capstone argument that a real CFO recommendation cannot be assembled by stacking the prior chapters' techniques but only by holding them all in tension at once? Keep it to three paragraphs. End with the single most surprising thing about his career or ideas.
+```
+
+→ Search **"Joseph Schumpeter"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain *creative destruction* in plain language, as if you've only ever read efficient-markets theory
+- Ask it to compare Schumpeter's account of the entrepreneur-CEO to the role of a modern integrated CFO
+- Add a constraint: "Answer as if you're writing the case for treating the CFO's integrated recommendation as a creative act, not a calculation"
+
+What changes? What gets better? What gets worse?
+
